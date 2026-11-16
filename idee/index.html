@@ -2,84 +2,181 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Idee video ad alto potenziale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
 <style>
+  /* Layout concept: a long-form research report. One reading column, wide tables in their own scroll boxes,
+     flat sections separated by hairlines. The only loud element is the headline. */
   :root {
-    --bg: #f6f5f1; --surface: #ffffff; --ink: #1d1d1b; --muted: #6b6a63; --line: #e3e1d8;
-    --accent: #1f5eff; --a: #0f7b4b; --abg: #dff3e8; --b: #8a5a00; --bbg: #fbeccb;
-    --c: #6b6a63; --cbg: #ecebe5; --warn: #b3261e; --warnbg: #fbe0dd;
+    --bg: #f2f4f7; --surface: #ffffff; --ink: #12161c; --muted: #5b6573; --line: #d9dee6;
+    --accent: #2447f5; --accent-soft: #e4e9ff;
+    --good: #0e7a5f; --good-bg: #ddf3ec; --mid: #8a5a00; --mid-bg: #fbebc8;
+    --low: #5b6573; --low-bg: #e7eaef; --warn: #b3261e; --warn-bg: #fbe3e0;
+    --display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --gutter: 16px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #141413; --surface: #1d1d1b; --ink: #ecebe5; --muted: #a09f96; --line: #33322e;
-      --accent: #7aa2ff; --a: #6fd4a2; --abg: #163626; --b: #f0c060; --bbg: #3a2e12;
-      --c: #a09f96; --cbg: #2a2926; --warn: #ff8f86; --warnbg: #3d1f1c;
+      --bg: #0f1217; --surface: #171b22; --ink: #e8ecf2; --muted: #98a2b3; --line: #2a313c;
+      --accent: #8aa0ff; --accent-soft: #1d2540;
+      --good: #5ed1a8; --good-bg: #123428; --mid: #f0c060; --mid-bg: #3a2e12;
+      --low: #98a2b3; --low-bg: #232a33; --warn: #ff9188; --warn-bg: #3d1f1c;
+      color-scheme: dark;
     }
   }
+  :root[data-theme="dark"] {
+    --bg: #0f1217; --surface: #171b22; --ink: #e8ecf2; --muted: #98a2b3; --line: #2a313c;
+    --accent: #8aa0ff; --accent-soft: #1d2540;
+    --good: #5ed1a8; --good-bg: #123428; --mid: #f0c060; --mid-bg: #3a2e12;
+    --low: #98a2b3; --low-bg: #232a33; --warn: #ff9188; --warn-bg: #3d1f1c;
+    color-scheme: dark;
+  }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink);
-    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  main { max-width: 1500px; margin: 0 auto; padding: 24px 16px 64px; }
-  h1 { font-size: 24px; margin: 0 0 4px; }
-  h2 { font-size: 17px; margin: 36px 0 8px; }
-  .sub { color: var(--muted); margin: 0 0 16px; max-width: 920px; }
-  .box { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; margin: 0 0 16px; max-width: 920px; }
-  .box.warn { border-color: var(--warn); }
-  .box ul { margin: 6px 0 0; padding-left: 18px; }
-  .box li { margin: 3px 0; }
-  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 12px; }
-  .bar input[type=search] { flex: 1 1 220px; min-width: 180px; padding: 8px 10px; border-radius: 8px;
-    border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; }
-  .bar select { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; }
-  .chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 6px 12px; border-radius: 999px; cursor: pointer; font: inherit; }
-  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
-  table { border-collapse: collapse; width: 100%; }
-  #tblC { min-width: 1380px; } #tblV { min-width: 1250px; }
-  th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-  th { position: sticky; top: 0; background: var(--surface); font-size: 12px; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); white-space: nowrap; }
-  #tblV th { cursor: pointer; user-select: none; } #tblV th.nosort { cursor: default; }
-  th[aria-sort="ascending"]::after { content: " ▲"; } th[aria-sort="descending"]::after { content: " ▼"; }
-  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 var(--body); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
+
+  nav.top { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+  nav.top .wrap { display: flex; gap: 4px; overflow-x: auto; padding-block: 10px; scrollbar-width: none; }
+  nav.top a { flex: none; padding: 6px 12px; border-radius: 999px; color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; }
+  nav.top a:hover { color: var(--ink); background: var(--low-bg); }
+
+  header.hero { padding-block: 56px 36px; }
+  .kicker { font: 600 12px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+  h1 { font: 700 clamp(34px, 6.2vw, 62px)/1.04 var(--display); letter-spacing: -0.025em; margin: 0 0 18px; max-width: 16ch; text-wrap: balance; }
+  h1 em { font-style: normal; color: var(--accent); white-space: nowrap; }
+  .lede { font-size: clamp(16px, 2vw, 19px); color: var(--muted); max-width: 62ch; margin: 0 0 28px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0; padding: 16px 0 0; border-top: 1px solid var(--line); list-style: none; }
+  .facts li { font-size: 13px; color: var(--muted); }
+  .facts strong { color: var(--ink); font: 700 15px var(--display); font-variant-numeric: tabular-nums; margin-right: 4px; }
+
+  section { padding-block: 44px; border-top: 1px solid var(--line); }
+  h2 { font: 700 clamp(24px, 3.4vw, 32px)/1.15 var(--display); letter-spacing: -0.015em; margin: 0 0 10px; text-wrap: balance; }
+  h3 { font: 700 17px/1.3 var(--display); margin: 28px 0 8px; }
+  p { margin: 0 0 14px; max-width: 70ch; }
+  .sub { color: var(--muted); max-width: 70ch; margin: 0 0 22px; }
+  ul.clean, ol.clean { margin: 0 0 16px; padding-left: 20px; max-width: 74ch; }
+  ul.clean li, ol.clean li { margin: 0 0 8px; }
+
+  .callout { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; margin: 0 0 20px; max-width: 78ch; }
+  .callout.warn { border-color: var(--warn); }
+  .callout > strong:first-child { display: block; margin-bottom: 6px; }
+  .callout.key { background: var(--accent-soft); border-color: transparent; }
+
+  .tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  tr:last-child td { border-bottom: 0; }
+  th { background: var(--surface); position: sticky; top: 0; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); white-space: nowrap; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
   tr.done td { opacity: .45; }
-  img.th { width: 144px; height: 81px; object-fit: cover; border-radius: 6px; background: var(--line); display: block; }
-  img.th.s { width: 112px; height: 63px; }
-  a { color: var(--accent); }
-  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
-  .bA { background: var(--abg); color: var(--a); } .bB { background: var(--bbg); color: var(--b); } .bC { background: var(--cbg); color: var(--c); }
-  .bw { background: var(--warnbg); color: var(--warn); margin-left: 4px; }
+  .t-clusters { min-width: 1340px; } .t-channels { min-width: 820px; } .t-hooks { min-width: 980px; } .t-plan { min-width: 980px; } .t-videos { min-width: 1200px; }
+  #tblV th { cursor: pointer; user-select: none; } #tblV th.ns { cursor: default; }
+  th[aria-sort="ascending"]::after { content: " ▲"; } th[aria-sort="descending"]::after { content: " ▼"; }
+
+  .badge { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .bA { background: var(--good-bg); color: var(--good); } .bB { background: var(--mid-bg); color: var(--mid); } .bC { background: var(--low-bg); color: var(--low); }
+  .bw { background: var(--warn-bg); color: var(--warn); margin-left: 4px; }
+  .bme { background: var(--accent-soft); color: var(--accent); }
   .small { color: var(--muted); font-size: 12px; }
-  .name { min-width: 230px; font-weight: 600; }
-  .ev { min-width: 300px; } .ev div { margin: 0 0 4px; }
-  .txt { min-width: 240px; }
-  footer { color: var(--muted); font-size: 12px; margin-top: 24px; max-width: 920px; }
+  .name { font-weight: 600; min-width: 220px; }
+  .ev { min-width: 290px; } .ev div { margin-bottom: 4px; }
+  .txt { min-width: 230px; }
+
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 12px; }
+  .bar input[type=search], .bar select { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; }
+  .bar input[type=search] { flex: 1 1 220px; min-width: 0; }
+  .chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 6px 13px; border-radius: 999px; cursor: pointer; font: 500 13px var(--body); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  td.thc { min-width: 168px; } td.thcs { min-width: 130px; }
+  img.th { width: 144px; max-width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 6px; background: var(--line); display: block; }
+  img.th.s { width: 112px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin: 0 0 20px; padding: 0; list-style: none; }
+  .grid li { min-width: 0; }
+  .grid img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 6px; background: var(--line); display: block; }
+  .grid .cap { margin-top: 6px; font-size: 13px; }
+  .grid .cap b { display: block; font-weight: 600; }
+
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 0 0 20px; }
+  .cols > div { min-width: 0; }
+  .cols h3 { margin-top: 0; }
+
+  .steps { list-style: none; margin: 0 0 20px; padding: 0; max-width: 74ch; }
+  .steps li { display: grid; grid-template-columns: 92px 1fr; gap: 14px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .steps li:last-child { border-bottom: 1px solid var(--line); }
+  .steps .t { font: 700 14px var(--display); font-variant-numeric: tabular-nums; color: var(--accent); }
+  @media (max-width: 520px) { .steps li { grid-template-columns: 1fr; gap: 2px; } }
+
+  footer { padding-block: 32px 64px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  footer p { max-width: 78ch; }
 </style>
 </head>
 <body>
-<main>
-  <h1>Idee video ad alto potenziale</h1>
-  <p class="sub">Premesse "una regola della realtà cambia", ordinate per quante prove hanno nei dati. Campione: <span id="nVideos"></span> video unici, <span id="nChannels"></span> canali. Fonte vidIQ, 16 nov 2026.</p>
 
-  <div class="box warn">
-    <strong>Leggi prima: cosa i dati NON dicono</strong>
-    <ul>
-      <li><strong>Sono solo vincitori.</strong> Tutti i video sono stati trovati con ricerche "outlier" (minimo 20–50K views). Qui non ci sono i video flop, quindi non si può calcolare una percentuale di successo. I 30 canali che vidIQ indica come simili al tuo hanno quasi tutti 0–22 iscritti e in media 27–377 views per video: quella è la media reale.</li>
-      <li><strong>Views non sono iscritti.</strong> vidIQ non mostra gli iscritti guadagnati per video.</li>
-      <li><strong>Saturazione e finestra breve.</strong> Quasi tutti i video sono di ottobre–novembre 2026. Più canali rifanno la stessa premessa nelle stesse settimane: la tendenza può finire presto.</li>
-      <li>Ho guardato 20 thumbnail ma non ho visto trascrizioni, quindi non so ancora cosa fanno i video nei primi 30 secondi. I dati sui flop e sul volume sono in fondo, nella sezione "Cosa fanno i canali che vincono".</li>
+<nav class="top" aria-label="Sezioni">
+  <div class="wrap">
+    <a href="#sintesi">Sintesi</a><a href="#premesse">Premesse</a><a href="#canali">Canali</a><a href="#thumbnail">Thumbnail</a>
+    <a href="#hook">Hook</a><a href="#piano">Piano</a><a href="#limiti">Limiti</a><a href="#database">Database</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Ricerca vidIQ · 16 novembre 2026</p>
+    <h1>Cosa replicare nei video <em>“What if”</em>, e come</h1>
+    <p class="lede">Analisi di <span id="nVideos"></span> video lunghi di <span id="nChannels"></span> canali piccoli, dei cataloghi completi di 4 canali con i loro flop, di 20 thumbnail e dell'apertura di 7 video. Per sapere cosa fare adesso e quanta fiducia dargli.</p>
+    <ul class="facts">
+      <li><strong id="fVideos"></strong>video nel database</li>
+      <li><strong>15</strong>famiglie di premesse</li>
+      <li><strong>80</strong>video con flop analizzati</li>
+      <li><strong>7</strong>aperture lette</li>
+      <li><strong>13 su 13</strong>thumbnail vincenti con testo</li>
     </ul>
   </div>
+</header>
 
-  <div class="box">
-    <strong>Come è calcolata la priorità</strong> (dati calcolati qui, per ogni gruppo di premesse)
-    <ul>
-      <li><strong>Hit piccole</strong> = canali diversi sotto i 30K iscritti con almeno un video sopra 150K views, esclusi i video segnati AI e quelli con personaggi con copyright.</li>
-      <li><span class="badge bA">Alto</span> almeno 4 hit piccole, views mediane del gruppo (video non AI) sopra 150K e video più recente di meno di 21 giorni.</li>
-      <li><span class="badge bB">Promettente</span> almeno 2 hit piccole.</li>
-      <li><span class="badge bC">Da testare</span> meno di 2 hit piccole.</li>
-      <li>Dentro ogni livello l'ordine è per numero di hit piccole, poi per views mediane. Spunta "Fatta" per escludere un gruppo: resta salvato nel browser.</li>
+<main>
+
+<section id="sintesi"><div class="wrap">
+  <h2>In sintesi</h2>
+  <p class="sub">Cosa dicono i dati, in ordine di importanza.</p>
+
+  <div class="callout key">
+    <strong>La risposta alla domanda “rifare questi video porta views?”</strong>
+    Con questi dati non esiste una probabilità calcolabile. Si vede però che la premessa da sola non basta: la stessa idea ha fatto 227.800 views su un canale e 342 su un altro. Quello che cambia sono la confezione, i primi 45 secondi e il ritmo di pubblicazione. Il modo sensato di procedere è un test di 10 video fatti con quel metodo, valutato con regole decise prima.
+  </div>
+
+  <ol class="clean">
+    <li><strong>Il formato è ripetibile.</strong> “Una regola della realtà cambia” compare in 109 video di 56 canali, raggruppati in 15 famiglie di premesse. 7 famiglie hanno prove forti, mostrate sotto.</li>
+    <li><strong>Anche i canali che vincono hanno flop.</strong> Su 80 video di 4 canali con hit, 29 (36%) superano 100K views, la mediana è 48.526 e il minimo è 607. Il canale più debole dei quattro ha una mediana di 7.294 views.</li>
+    <li><strong>La confezione sembra pesare più dell'idea.</strong> Tutte e 13 le thumbnail vincenti che ho guardato hanno testo o un'etichetta grafica sull'elemento chiave. Nelle aperture dei vincitori la premessa è chiara entro 45 secondi, con un limite o una posta, e le frasi sono corte.</li>
+    <li><strong>Il volume è alto.</strong> I 4 canali pubblicano circa 1 video al giorno e provano molte premesse. Il successo è un portafoglio di tentativi.</li>
+    <li><strong>Gli iscritti arrivano piano.</strong> Circa 2–5 iscritti ogni 1.000 views. Un video da 100K views vale nell'ordine di 240–500 iscritti (stima per eccesso).</li>
+    <li><strong>La media di un canale nuovo è molto più bassa.</strong> I 30 canali che vidIQ indica come simili a un canale nuovo del genere hanno tutti meno di 400 views di media a video. I video di questa pagina sono le eccezioni.</li>
+  </ol>
+</div></section>
+
+<section id="premesse"><div class="wrap">
+  <h2>Le premesse da fare, in ordine di prove</h2>
+  <p class="sub">Quindici famiglie. Il livello dipende da quanti canali piccoli hanno superato 150K views con quella premessa.</p>
+
+  <div class="callout">
+    <strong>Come è calcolata la priorità</strong>
+    <ul class="clean" style="margin-bottom:0">
+      <li><strong>Hit piccole</strong>: canali diversi sotto i 30K iscritti con almeno un video sopra 150K views, esclusi i video segnati AI e quelli con personaggi con copyright.</li>
+      <li><span class="badge bA">Alto</span> almeno 4 hit piccole, views mediane sopra 150K e video più recente di meno di 21 giorni.</li>
+      <li><span class="badge bB">Promettente</span> almeno 2 hit piccole. <span class="badge bC">Da testare</span> meno di 2.</li>
+      <li>Dentro ogni livello l'ordine è per numero di hit piccole, poi per views mediane. Spunta “Fatta” per escludere una famiglia: resta salvato nel tuo browser.</li>
     </ul>
   </div>
 
@@ -90,75 +187,193 @@
     <button class="chip" data-filter="C" aria-pressed="false">Da testare</button>
     <button class="chip" id="hideDone" aria-pressed="false">Nascondi fatte</button>
   </div>
-
-  <div class="wrap">
-    <table id="tblC">
+  <div class="tw">
+    <table class="t-clusters">
       <thead><tr>
-        <th class="num">#</th><th>Priorità</th><th>Thumbnail</th><th>Gruppo di premesse</th>
-        <th class="num">Video</th><th class="num">Canali</th><th class="num">Hit piccole</th>
-        <th class="num">Views mediane</th><th class="num">Best views</th><th class="num">Durata mediana</th><th>Più recente</th>
+        <th class="n">#</th><th>Priorità</th><th>Thumbnail</th><th>Famiglia di premesse</th>
+        <th class="n">Video</th><th class="n">Canali</th><th class="n">Hit piccole</th>
+        <th class="n">Views mediane</th><th class="n">Best views</th><th class="n">Durata mediana</th><th>Più recente</th>
         <th>Prove migliori</th><th>Come farlo tuo (ipotesi)</th><th>Rischi</th><th>Fatta</th>
       </tr></thead>
       <tbody id="bodyC"></tbody>
     </table>
   </div>
+</div></section>
 
+<section id="canali"><div class="wrap">
+  <h2>Cosa fanno i canali che vincono, flop compresi</h2>
+  <p class="sub">Ho scaricato tutti i video lunghi recenti di 4 canali con più hit nelle famiglie “vedere X” (ultimi 16–30 giorni), per vedere anche i video andati male.</p>
+  <div class="tw">
+    <table class="t-channels">
+      <thead><tr>
+        <th>Canale</th><th class="n">Iscritti</th><th class="n">Video analizzati</th><th class="n">Video al giorno</th>
+        <th class="n">Views mediane</th><th class="n">Sopra 100K</th><th class="n">Sopra 50K</th><th class="n">Iscritti ogni 1.000 views</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Hypo Room</td><td class="n">20.300</td><td class="n">15</td><td class="n">0,9</td><td class="n">78.369</td><td class="n">7 (47%)</td><td class="n">9 (60%)</td><td class="n">5,0</td></tr>
+        <tr><td>ConChaser</td><td class="n">28.600</td><td class="n">24</td><td class="n">1,0</td><td class="n">79.472</td><td class="n">11 (46%)</td><td class="n">16 (67%)</td><td class="n">3,2</td></tr>
+        <tr><td>IFNation</td><td class="n">9.700</td><td class="n">18</td><td class="n">0,9</td><td class="n">57.319</td><td class="n">8 (44%)</td><td class="n">9 (50%)</td><td class="n">2,4</td></tr>
+        <tr><td>Sketch Of Mind</td><td class="n">2.300</td><td class="n">23</td><td class="n">0,8</td><td class="n">7.294</td><td class="n">3 (13%)</td><td class="n">5 (22%)</td><td class="n">3,2</td></tr>
+        <tr><td><strong>Totale</strong></td><td class="n">—</td><td class="n"><strong>80</strong></td><td class="n">—</td><td class="n"><strong>48.526</strong></td><td class="n"><strong>29 (36%)</strong></td><td class="n">—</td><td class="n">2,4–5,0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Cosa si ricava</h3>
+  <ul class="clean">
+    <li><strong>Varianza enorme tra canali.</strong> Con lo stesso formato, tre canali hanno circa il 45% dei video sopra 100K views e uno il 13%. Anche il canale migliore ha video da 3.122 views.</li>
+    <li><strong>Un seguito non è una garanzia.</strong> “What If You Had 500 Charisma?” ha 1,2M views su IFNation. Sketch Of Mind ha provato “1,000 Charisma” e dopo 3 giorni è a 2.574.</li>
+    <li><strong>Durata:</strong> da 7 a 21 minuti senza un valore ottimale chiaro. Alcuni video da 7 minuti arrivano a 533K views.</li>
+    <li><strong>Dettagli di canale.</strong> Hypo Room mette in cima alla descrizione il link al video successivo. IFNation promuove un gioco di carte “What If”. Un video di WhatVerse si presenta come “Part 1”, quindi come serie. Sono osservazioni, non prove di effetto sugli iscritti.</li>
+    <li><strong>Limite.</strong> I 4 canali sono stati scelti perché avevano già hit. Il 36% non è la probabilità per un canale qualsiasi.</li>
+  </ul>
+</div></section>
+
+<section id="thumbnail"><div class="wrap">
+  <h2>Thumbnail: cosa hanno in comune i video vincenti</h2>
+  <p class="sub">Ho guardato 13 thumbnail di video vincenti. Tutte hanno testo o un'etichetta grafica. Otto sono qui sotto, con il testo che mostrano.</p>
+  <ul class="grid" id="thumbGrid"></ul>
+  <ul class="clean">
+    <li><strong>Mostrano il trucco della premessa</strong> con un numero o un'etichetta: 999+, 100%, 99%, 160 IQ contro 70 IQ, 60 KIDS?!, MATCH.</li>
+    <li><strong>Una scena sola</strong>, chiara, con un'espressione esagerata e colori molto saturi.</li>
+    <li><strong>Personaggi stilizzati</strong> con volto semplice, quasi sempre con occhi grandi.</li>
+    <li><strong>Poche parole</strong>: da 1 a 3 per elemento, spesso con una freccia sul punto chiave.</li>
+    <li><strong>Sulla stessa premessa:</strong> il bunker con la cotta di Stupid Dupid (89.700 views) ha “YOU” e “YOUR CRUSH” con frecce. WhatVerse, sulla scuola di sole ragazze (227.800 views), ha un grande “oh sh*t” sopra una folla di personaggi con cuori negli occhi.</li>
+  </ul>
+  <p class="small">Cosa non so: non ho i dati di CTR dei vincitori, quindi non posso dire quanto pesi ciascun elemento.</p>
+</div></section>
+
+<section id="hook"><div class="wrap">
+  <h2>Hook: i primi 45 secondi</h2>
+  <p class="sub">Ho letto la trascrizione dell'apertura di 5 video vincenti e di 2 tuoi. Quattro vincitori sono dei canali della sezione sopra, il quinto è il bunker di Stupid Dupid, che ha la tua stessa premessa.</p>
+  <div class="tw">
+    <table class="t-hooks">
+      <thead><tr>
+        <th>Video</th><th class="n">Views</th><th>Persona</th><th>Premessa chiara entro</th><th>Limite o posta</th><th>Primo effetto</th><th class="n">Parole per frase</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><a href="https://www.youtube.com/watch?v=2TsZSQ77E9o" target="_blank" rel="noopener">ConChaser, vedere l'IQ</a></td><td class="n">2,2M</td><td>Prima</td><td>0:25 (il numero 70 sopra la testa del compagno, 160 sopra la propria)</td><td>Voto F contro A+. A 0:32 “qualcosa non va, ma lasciami spiegare”</td><td>0:17, la classe ride</td><td class="n">6,3</td></tr>
+        <tr><td><a href="https://www.youtube.com/watch?v=UtXsABU4Cek" target="_blank" rel="noopener">Hypo Room, 100 Amazzoni</a></td><td class="n">775K</td><td>Seconda</td><td>0:00 (isola, cento guerriere con la lancia puntata)</td><td>30 giorni, voto di 100 lance. A 0:45 promette che a fine video si saprà cosa è successo all'ultimo uomo</td><td>0:17, la legge dell'isola</td><td class="n">6,8</td></tr>
+        <tr><td><a href="https://www.youtube.com/watch?v=G63ZpgzmSGo" target="_blank" rel="noopener">IFNation, 500 Charisma</a></td><td class="n">1,2M</td><td>Seconda</td><td>0:41 (“la maggior parte ha 10 di carisma, tu 500”)</td><td>Punizione in presidenza</td><td>0:33, la punizione sparisce</td><td class="n">7,5</td></tr>
+        <tr><td><a href="https://www.youtube.com/watch?v=aV7_cA_xVXI" target="_blank" rel="noopener">Jeremy Bearimy, chi ha una cotta</a></td><td class="n">2M</td><td>Seconda</td><td>0:43 (un numero dice quante persone hanno una cotta)</td><td>Scommessa da 20 dollari</td><td>0:34, invito a ballare</td><td class="n">6,4</td></tr>
+        <tr><td><a href="https://www.youtube.com/watch?v=hLNpGNDuFcY" target="_blank" rel="noopener">Stupid Dupid, bunker con la cotta</a></td><td class="n">89.7K</td><td>Seconda</td><td>0:00 (30 giorni sottoterra con la cotta)</td><td>30 giorni, nessuna via d'uscita</td><td>0:35, lei lo invita a esplorare</td><td class="n">7,6</td></tr>
+        <tr><td><span class="badge bme">Tuo</span> <a href="https://www.youtube.com/watch?v=LtISMHWuj90" target="_blank" rel="noopener">Only Boy, scuola di ragazze</a></td><td class="n">342</td><td>Seconda</td><td>0:17 (un posto per un ragazzo)</td><td>Nessuna nei primi 42 secondi letti</td><td>0:26, la gag della banana</td><td class="n">9,5</td></tr>
+        <tr><td><span class="badge bme">Tuo</span> <a href="https://www.youtube.com/watch?v=bO_8LY89Thw" target="_blank" rel="noopener">Bunker con la cotta</a></td><td class="n">88</td><td>Seconda</td><td>Il rifugio compare a 0:34 dopo un antefatto di alluvione. Nessun limite di tempo nei primi 43 secondi letti</td><td>Tensione iniziale (luci, barca di soccorso), poi lungo antefatto</td><td>Non nei primi 43 secondi</td><td class="n">9,8</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cols" style="margin-top:24px">
+    <div>
+      <h3>Cosa fanno i vincitori</h3>
+      <ul class="clean">
+        <li>Aprono con una scena concreta, non con una spiegazione.</li>
+        <li>Dicono la regola in una frase con un numero entro i primi 45 secondi.</li>
+        <li>Mettono un limite o una posta (30 giorni, 100 lance, una scommessa, un voto).</li>
+        <li>Mostrano il primo effetto della regola entro 35 secondi.</li>
+        <li>Usano frasi corte: in media da 6,3 a 7,6 parole.</li>
+        <li>Chiudono la prima parte con una promessa o una domanda aperta.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Dove i due video tuoi si discostano</h3>
+      <ul class="clean">
+        <li>Stessa persona e stessa scena concreta di apertura: questo punto è già a posto. La frase “900 girls turn” è la stessa che dà il nome allo Short, che ha 1,2K views.</li>
+        <li>Frasi più lunghe: in media 9,5 e 9,8 parole contro 6,3–7,6.</li>
+        <li>Nei primi secondi letti non compaiono limite, posta o promessa.</li>
+        <li>Nel Bunker la situazione compare dopo un lungo antefatto.</li>
+        <li>L'umorismo è sottile e letterario. Fa sorridere, ma non fa avanzare la storia.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Schema per i primi 45 secondi (ipotesi)</h3>
+  <p class="sub">Ricavato dalle 5 aperture vincenti. Non è una formula garantita.</p>
+  <ol class="steps">
+    <li><span class="t">0:00–0:08</span><span>Una scena concreta con un'immagine forte, in seconda persona e al presente.</span></li>
+    <li><span class="t">0:08–0:20</span><span>La regola in una frase con un numero: “Da stamattina vedi un numero sopra la testa di chiunque”.</span></li>
+    <li><span class="t">0:20–0:35</span><span>Il primo effetto, che deve far ridere o stupire subito.</span></li>
+    <li><span class="t">0:35–0:45</span><span>Il limite o la posta, più una promessa: “Alla fine saprai cosa succede il giorno 30”.</span></li>
+    <li><span class="t">Sempre</span><span>Frasi da 5–8 parole. Dopo ogni frase lunga, una corta.</span></li>
+  </ol>
+  <p class="small">Ho provato anche uno strumento automatico di punteggio degli hook. Ha dato “debole” a tutti e ha messo al primo posto il video con meno views, quindi non l'ho usato come prova.</p>
+</div></section>
+
+<section id="piano"><div class="wrap">
+  <h2>Piano per i prossimi 10 giorni</h2>
+  <p class="sub">Un video al giorno, dalle famiglie con più prove. I titoli sono proposte di lavoro non testate. Le regole di valutazione sono mie e non vengono da vidIQ.</p>
+  <div class="tw">
+    <table class="t-plan">
+      <thead><tr><th class="n">Giorno</th><th>Famiglia</th><th>Titolo di lavoro</th><th>Prove da guardare</th><th>Note</th><th>Fatto</th></tr></thead>
+      <tbody id="bodyP"></tbody>
+    </table>
+  </div>
+
+  <div class="cols" style="margin-top:24px">
+    <div>
+      <h3>Per ogni video</h3>
+      <ul class="clean">
+        <li><strong>Thumbnail:</strong> 1–3 parole, un'etichetta o un numero sull'elemento chiave, una sola scena, espressione forte, colori saturi. Non ripetere il titolo.</li>
+        <li><strong>Hook:</strong> lo schema dei primi 45 secondi, con frasi di media 6–8 parole.</li>
+        <li><strong>Premessa:</strong> una variante nuova della famiglia, non il titolo identico. Evita personaggi con copyright.</li>
+        <li><strong>Descrizione:</strong> link al video successivo in cima.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Regole di valutazione (mie)</h3>
+      <ul class="clean">
+        <li>Dopo il giorno 5, guarda per ogni video CTR, impressioni, durata media e percentuale ancora presente a 0:30 in Studio.</li>
+        <li>Se almeno 2 video su 5 superano 3.000 views in 72 ore, il metodo regge e si prosegue.</li>
+        <li>Se nessuno supera 1.000 views in 72 ore, cambia thumbnail e hook prima di cambiare premessa.</li>
+        <li>Se una famiglia ne produce 2 su 2, falla due volte nella settimana successiva.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Un segnale da tenere d'occhio</h3>
+  <p><strong>“What if history”</strong> è in crescita come ricerca (+262,8% in una settimana, circa 298K ricerche al mese stimate da vidIQ). Non ho trovato video di prova: è un segnale da testare con un solo video. Le altre keyword in crescita sono quasi tutte Roblox, un genere diverso.</p>
+</div></section>
+
+<section id="limiti"><div class="wrap">
+  <h2>Limiti e cosa non so</h2>
+  <div class="callout warn">
+    <strong>Da tenere presente prima di decidere</strong>
+    <ul class="clean" style="margin-bottom:0">
+      <li><strong>Sopravvivenza.</strong> Quasi tutti i video del database sono stati trovati con ricerche “outlier” (minimo 20–50K views). I flop ci sono solo nei 4 cataloghi, e quei canali sono stati scelti perché avevano già hit.</li>
+      <li><strong>Nessuna prova diretta.</strong> Nessun video del piano è stato pubblicato come test. Non c'è un risultato misurato.</li>
+      <li><strong>Correlazione.</strong> Le differenze osservate in thumbnail e hook non dimostrano che siano la causa del risultato.</li>
+      <li><strong>Campione piccolo.</strong> 7 aperture, ognuna letta per circa 45 secondi. Per i vincitori mancano retention e CTR.</li>
+      <li><strong>Finestra breve.</strong> I dati coprono ottobre e novembre 2026. Quando più canali rifanno la stessa premessa, la tendenza può finire presto.</li>
+      <li><strong>Iscritti.</strong> 2–5 ogni 1.000 views è una stima per eccesso, perché gli iscritti totali includono anche quelli di prima.</li>
+      <li><strong>Rischi di contenuto.</strong> 8 video su 109 sono segnati AI da vidIQ e 6 usano personaggi con copyright. Alcuni temi (body count, tempo di vita rimasto, aspetto fisico) sono delicati per le linee guida di YouTube.</li>
+      <li><strong>Stime di terzi.</strong> Views, iscritti e ricerche mensili vengono da vidIQ e sono stime.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="database"><div class="wrap">
   <h2>Tutti i video del campione</h2>
-  <p class="sub">Clicca un'intestazione per ordinare. Il filtro per gruppo usa gli stessi gruppi della tabella sopra.</p>
+  <p class="sub">Clicca un'intestazione per ordinare. Il filtro per famiglia usa gli stessi gruppi della tabella delle premesse.</p>
   <div class="bar">
     <input type="search" id="q" placeholder="Cerca per titolo o canale" aria-label="Cerca per titolo o canale">
-    <select id="cl" aria-label="Filtra per gruppo"></select>
+    <select id="cl" aria-label="Filtra per famiglia"></select>
     <button class="chip" id="onlySmall" aria-pressed="false">Solo canali sotto 30K</button>
     <button class="chip" id="noFlag" aria-pressed="false">Nascondi AI e copyright</button>
   </div>
-  <div class="wrap">
-    <table id="tblV">
+  <div class="tw">
+    <table class="t-videos" id="tblV">
       <thead><tr id="headV"></tr></thead>
       <tbody id="bodyV"></tbody>
     </table>
   </div>
+</div></section>
 
-  <h2>Cosa fanno i canali che vincono (flop compresi)</h2>
-  <p class="sub">Ho scaricato tutti i video lunghi recenti di 4 canali che hanno fatto più hit nelle famiglie "vedere X" (ultimi 16–30 giorni). Così si vedono anche i video andati male, non solo i vincitori.</p>
-  <div class="wrap">
-    <table style="min-width: 900px">
-      <thead><tr>
-        <th>Canale</th><th class="num">Iscritti</th><th class="num">Video analizzati</th><th class="num">Video al giorno</th>
-        <th class="num">Views mediane</th><th class="num">Sopra 100K</th><th class="num">Sopra 50K</th><th class="num">Iscritti ogni 1.000 views</th>
-      </tr></thead>
-      <tbody>
-        <tr><td>Hypo Room</td><td class="num">20.300</td><td class="num">15</td><td class="num">0,9</td><td class="num">78.369</td><td class="num">7 (47%)</td><td class="num">9 (60%)</td><td class="num">5,0</td></tr>
-        <tr><td>ConChaser</td><td class="num">28.600</td><td class="num">24</td><td class="num">1,0</td><td class="num">79.472</td><td class="num">11 (46%)</td><td class="num">16 (67%)</td><td class="num">3,2</td></tr>
-        <tr><td>IFNation</td><td class="num">9.700</td><td class="num">18</td><td class="num">0,9</td><td class="num">57.319</td><td class="num">8 (44%)</td><td class="num">9 (50%)</td><td class="num">2,4</td></tr>
-        <tr><td>Sketch Of Mind</td><td class="num">2.300</td><td class="num">23</td><td class="num">0,8</td><td class="num">7.294</td><td class="num">3 (13%)</td><td class="num">5 (22%)</td><td class="num">3,2</td></tr>
-        <tr><td><strong>Totale</strong></td><td class="num">—</td><td class="num"><strong>80</strong></td><td class="num">—</td><td class="num"><strong>48.526</strong></td><td class="num"><strong>29 (36%)</strong></td><td class="num">—</td><td class="num">2,4–5,0</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="box" style="margin-top:16px">
-    <strong>Cosa si ricava</strong>
-    <ul>
-      <li><strong>Volume alto:</strong> tutti e 4 pubblicano circa 1 video al giorno e provano molte premesse. La hit non è una sola idea azzeccata: è un portafoglio di tentativi.</li>
-      <li><strong>Varianza enorme tra canali.</strong> Con lo stesso formato, Hypo Room, ConChaser e IFNation hanno circa il 45% dei video sopra 100K views, Sketch Of Mind il 13%, con la mediana a 7.294. Il video migliore del canale peggiore di questi quattro è ancora a 134.805 views, ma il suo video mediano no.</li>
-      <li><strong>Iscritti:</strong> circa 2–5 iscritti ogni 1.000 views. Un video da 100K views porta quindi nell'ordine di 240–500 iscritti. È una stima per eccesso: gli iscritti totali includono anche quelli di prima.</li>
-      <li><strong>Thumbnail:</strong> in tutte e 13 le thumbnail di video vincenti che ho guardato c'è testo o un'etichetta grafica, spesso sul "trucco" della premessa (999+, 100%, 99%, 160 IQ contro 70 IQ, 60 KIDS?!, MATCH, MY EX.). Quasi tutte hanno colori saturi, un'unica scena chiara, un'espressione esagerata e personaggi stilizzati con volto semplice.</li>
-      <li><strong>Durata:</strong> da 7 a 21 minuti, senza un valore ottimale chiaro. Alcuni video da 7 minuti arrivano a 533K views.</li>
-      <li><strong>Limite:</strong> questi 4 canali sono stati scelti perché avevano già hit. Il 36% non è la probabilità per un canale qualsiasi: i 30 canali che vidIQ indica come simili a un canale nuovo avevano tutti meno di 400 views di media a video.</li>
-    </ul>
-  </div>
-
-  <h2>Segnale da tenere d'occhio</h2>
-  <div class="box">
-    <ul>
-      <li><strong>"What if history"</strong> risulta in crescita come ricerca (+262,8% in una settimana, circa 298K ricerche al mese stimate da vidIQ). Non ho trovato video di prova: è un segnale da testare, non una premessa verificata.</li>
-      <li>Le altre keyword in crescita sono quasi tutte Roblox ("In This Town", "In This World"): un genere diverso dal tuo.</li>
-    </ul>
-  </div>
-
-  <footer>
-    Fonte: vidIQ, ricerche outlier long-form e canali simili del 16 nov 2026. Le views crescono ancora. Esclusi: la premessa "solo ragazzo in una scuola di ragazze" e il bunker con la cotta, che hai già fatto. Esclusi anche Shorts, compilation Roblox e video sopra i 30 minuti.
-  </footer>
 </main>
+
+<footer>
+  <div class="wrap">
+    <p>Fonte: vidIQ (ricerche outlier long-form, canali simili, cataloghi di canale, trascrizioni dalle pagine YouTube) del 16 novembre 2026. Le views crescono ancora. Esclusi gli Short, le compilation Roblox, i video sopra i 30 minuti e le premesse già fatte dal canale (la scuola di sole ragazze, il bunker con la cotta). Le trascrizioni sono state lette solo per l'analisi e qui sono riassunte.</p>
+  </div>
+</footer>
 
 <script>
 //<core>
@@ -196,7 +411,7 @@ var CLUSTERS = {
    angle:"Racconta le conseguenze sulla società, non solo su una persona.",
    risk:"Pochi video e molto diversi tra loro: poca ripetibilità."},
  "last":{name:"L'ultimo umano o l'ultima ragazza sulla Terra",
-   angle:"Sopravvivenza e responsabilità. Vicina al tuo \"Last 2 Humans\" (12 views): confronta il packaging prima.",
+   angle:"Sopravvivenza e responsabilità. Vicina al tuo \"Last 2 Humans\" (12 views): confronta il packaging prima di rifarla.",
    risk:"Il tuo video simile non ha funzionato: capisci prima perché."},
  "girls-only":{name:"Unico ragazzo tra ragazze (altre ambientazioni)",
    angle:"Isola, spazio, campo estivo, sleepover. La scuola l'hai già fatta (342 views).",
@@ -338,6 +553,30 @@ var V = [
  ["u4JVj-oHIzA","What If Your Bite Could Cure Zombies in a Zombie Apocalypse?","IfDatTrue",4600,94100,"13:51","2026-11-03","","zombie"]
 ];
 
+var PLAN = [
+ {day:1, cl:"love", title:"What If You Could See Who Has a Crush on You for 24 Hours?", ev:["aV7_cA_xVXI","iKZw4OZ6S6E"], note:"Mostra un numero e un filo luminoso sulla thumbnail. Limite di 24 ore come posta."},
+ {day:2, cl:"see-hidden", title:"What If You Could See Everyone's Biggest Secret… Including Your Best Friend's?", ev:["fjfrQmDW0dM","TsZ7i-804eM"], note:"Il segreto dell'amico è la posta personale. Tema da trattare con delicatezza."},
+ {day:3, cl:"iq-change", title:"What If Your IQ Doubled Every Hour?", ev:["mxg-vH5bL-w","YLcSinTIGlo"], note:"Variante di “raddoppia ogni giorno”. Famiglia molto affollata: serve un'apertura forte."},
+ {day:4, cl:"ability", title:"What If Your Reflexes Were 1,000x Faster?", ev:["ric3a4rv54M","ggRf0ZYzrr8"], note:"Il video di partenza dura 6:25: costa poco. Mostra le conseguenze quotidiane."},
+ {day:5, cl:"see-rating", title:"What If You Could See How Everyone Rates You Out of 100?", ev:["Lu9p69RkagA","kS222TGe8Nc"], note:"Giorno di verifica: dopo questo video leggi CTR e retention dei primi 5."},
+ {day:6, cl:"except-you", title:"What If Nobody Could Keep a Secret Except You?", ev:["UMkVmEO-88I","LQC2nR89C78"], note:"Variante di “nessuno può mentire tranne te”, che ha 597K views su un canale da 2,3K iscritti."},
+ {day:7, cl:"love", title:"What If You Could See Who Has a Crush on Your Best Friend?", ev:["iKZw4OZ6S6E","sTunsDmRyJQ"], note:"Seconda variante della famiglia con più prove, con un angolo nuovo."},
+ {day:8, cl:"game-powers", title:"What If You Had 500 Luck?", ev:["G63ZpgzmSGo","CE-KjjuOWlY"], note:"Il seguito dello stesso schema non è garantito: “1,000 Charisma” di Sketch Of Mind è a 2.574 views dopo 3 giorni."},
+ {day:9, cl:"last", title:"What If You Woke Up as the Last Human With 100 Days of Food?", ev:["J3XahLkDEzU","DgftZCQe8sI"], note:"Simile al tuo “Last 2 Humans” (12 views): qui servono una scena e un limite chiari."},
+ {day:10, cl:"see-hidden", title:"What If You Could See Everyone's Biggest Regret, Starting With Yours?", ev:["J0pP4q9nOAM","dlJ_roZ_fAM"], note:"Seconda variante della famiglia “vedere i lati nascosti”."}
+];
+
+var THUMBS = [
+ {id:"aV7_cA_xVXI", cap:"Etichette “friend / CRUSH / friend”"},
+ {id:"iKZw4OZ6S6E", cap:"“999+” contro “0”, con le altezze"},
+ {id:"JyuOmTd2f_w", cap:"“100%” e “I DON'T CARE.”"},
+ {id:"EeruWNQ0CDM", cap:"“MY EX.” con una freccia"},
+ {id:"aee7TD0bsQM", cap:"“SHE LOVES ME?!” e “99%”"},
+ {id:"Cuc0qfq2_jE", cap:"“MATCH” e i nomi sopra le teste"},
+ {id:"Xj9TSiOhbU0", cap:"“60 KIDS?!”"},
+ {id:"2TsZSQ77E9o", cap:"“160 IQ” e “70 IQ”, voti F e A+"}
+];
+
 function durSec(s){ var p=s.split(":").map(Number); return p[0]*60+p[1]; }
 function fmtDur(sec){ var m=Math.floor(sec/60), s=Math.round(sec%60); return m+":"+(s<10?"0":"")+s; }
 function median(a){ if(!a.length) return 0; var s=a.slice().sort(function(x,y){return x-y;}), n=s.length; return n%2 ? s[(n-1)/2] : (s[n/2-1]+s[n/2])/2; }
@@ -384,6 +623,7 @@ function buildClusters(){
 var LABEL = {A:"Alto", B:"Promettente", C:"Da testare"};
 var CL = buildClusters();
 var ALLV = videos();
+var BYID = {}; ALLV.forEach(function(v){ BYID[v.id]=v; });
 var stC = { filter:"all", hideDone:false };
 var stV = { q:"", cl:"all", onlySmall:false, noFlag:false, key:"views", dir:-1 };
 var DONE = {};
@@ -394,10 +634,17 @@ function fmt(n){ return Math.round(n).toLocaleString("it-IT"); }
 function fmt1(n){ return n.toLocaleString("it-IT", {maximumFractionDigits:1}); }
 function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
 function link(href, text){ var a=el("a",null,text); a.href=href; a.target="_blank"; a.rel="noopener"; return a; }
+function yt(id){ return "https://www.youtube.com/watch?v="+id; }
 function thumb(id, alt, small){
-  var a = link("https://www.youtube.com/watch?v="+id, "");
+  var a = link(yt(id), "");
   var img = document.createElement("img"); img.className = "th"+(small?" s":""); img.loading="lazy"; img.alt="Thumbnail: "+alt;
   img.src = "https://i.ytimg.com/vi/"+id+"/mqdefault.jpg"; a.appendChild(img); return a;
+}
+function checkbox(key, label, rerender){
+  var cb = document.createElement("input"); cb.type="checkbox"; cb.checked=!!DONE[key];
+  cb.setAttribute("aria-label", label);
+  cb.addEventListener("change", function(){ if(cb.checked) DONE[key]=true; else delete DONE[key]; saveDone(); rerender(); });
+  return cb;
 }
 
 function renderC(){
@@ -407,49 +654,82 @@ function renderC(){
     if(stC.hideDone && DONE[c.key]) return false;
     return true;
   });
-  if(!shown.length){ var t=el("tr"), d=el("td",null,"Nessun gruppo corrisponde ai filtri."); d.colSpan=15; t.appendChild(d); body.appendChild(t); return; }
+  if(!shown.length){ var t=el("tr"), d=el("td",null,"Nessuna famiglia corrisponde ai filtri."); d.colSpan=15; t.appendChild(d); body.appendChild(t); return; }
   shown.forEach(function(c){
     var tr = el("tr", DONE[c.key] ? "done" : "");
-    tr.appendChild(el("td","num",String(c.rank)));
-    tr.appendChild(el("td")).appendChild(el("span","badge b"+c.tier, LABEL[c.tier]));
-    var tdI = el("td"); tdI.appendChild(thumb(c.bestEv.id, c.bestEv.t)); tdI.appendChild(el("div","small","Video migliore: "+c.bestEv.ch)); tr.appendChild(tdI);
+    tr.appendChild(el("td","n",String(c.rank)));
+    var tdP = el("td"); tdP.appendChild(el("span","badge b"+c.tier, LABEL[c.tier])); tr.appendChild(tdP);
+    var tdI = el("td","thc"); tdI.appendChild(thumb(c.bestEv.id, c.bestEv.t)); tdI.appendChild(el("div","small","Video migliore: "+c.bestEv.ch)); tr.appendChild(tdI);
     tr.appendChild(el("td","name",c.name));
-    tr.appendChild(el("td","num",String(c.n)));
-    tr.appendChild(el("td","num",String(c.channels)));
-    tr.appendChild(el("td","num",String(c.hits)));
-    tr.appendChild(el("td","num",fmt(c.medViews)));
-    tr.appendChild(el("td","num",c.bestViews ? fmt(c.bestViews) : "—"));
-    tr.appendChild(el("td","num",fmtDur(c.medDur)));
+    tr.appendChild(el("td","n",String(c.n)));
+    tr.appendChild(el("td","n",String(c.channels)));
+    tr.appendChild(el("td","n",String(c.hits)));
+    tr.appendChild(el("td","n",fmt(c.medViews)));
+    tr.appendChild(el("td","n",c.bestViews ? fmt(c.bestViews) : "—"));
+    tr.appendChild(el("td","n",fmtDur(c.medDur)));
     var tdN = el("td",null,c.newest); tdN.appendChild(el("div","small",c.newestAge+" giorni fa")); tr.appendChild(tdN);
     var tdE = el("td","ev");
     c.best.forEach(function(e){
-      var d = el("div"); d.appendChild(link("https://www.youtube.com/watch?v="+e.id, e.t));
+      var d = el("div"); d.appendChild(link(yt(e.id), e.t));
       d.appendChild(el("span","small"," · "+e.ch+" ("+fmt(e.subs)+" iscritti) · "+fmt(e.views)+" views · "+e.dur));
       tdE.appendChild(d);
     });
     tr.appendChild(tdE);
     tr.appendChild(el("td","txt",c.angle));
     tr.appendChild(el("td","txt",c.risk));
-    var tdD = el("td"); var cb=document.createElement("input"); cb.type="checkbox"; cb.checked=!!DONE[c.key];
-    cb.setAttribute("aria-label","Segna come fatta: "+c.name);
-    cb.addEventListener("change", function(){ if(cb.checked) DONE[c.key]=true; else delete DONE[c.key]; saveDone(); renderC(); });
-    tdD.appendChild(cb); tr.appendChild(tdD);
+    var tdD = el("td"); tdD.appendChild(checkbox(c.key, "Segna come fatta: "+c.name, renderC)); tr.appendChild(tdD);
     body.appendChild(tr);
   });
 }
 
+function renderPlan(){
+  var body = document.getElementById("bodyP"); body.textContent="";
+  PLAN.forEach(function(p){
+    var key = "plan-"+p.day;
+    var tr = el("tr", DONE[key] ? "done" : "");
+    tr.appendChild(el("td","n",String(p.day)));
+    var tdF = el("td","name",CLUSTERS[p.cl].name); tr.appendChild(tdF);
+    tr.appendChild(el("td","name",p.title));
+    var tdE = el("td","ev");
+    p.ev.forEach(function(id){
+      var v = BYID[id]; if(!v) return;
+      var d = el("div"); d.appendChild(link(yt(id), v.t));
+      d.appendChild(el("span","small"," · "+v.ch+" · "+fmt(v.views)+" views"));
+      tdE.appendChild(d);
+    });
+    tr.appendChild(tdE);
+    tr.appendChild(el("td","txt",p.note));
+    var tdD = el("td"); tdD.appendChild(checkbox(key, "Segna il giorno "+p.day+" come fatto", renderPlan)); tr.appendChild(tdD);
+    body.appendChild(tr);
+  });
+}
+
+function renderThumbs(){
+  var ul = document.getElementById("thumbGrid"); ul.textContent="";
+  THUMBS.forEach(function(t){
+    var v = BYID[t.id]; var li = el("li");
+    var a = link(yt(t.id), ""); var img = document.createElement("img");
+    img.loading="lazy"; img.alt = "Thumbnail: "+(v?v.t:t.id); img.src = "https://i.ytimg.com/vi/"+t.id+"/mqdefault.jpg";
+    a.appendChild(img); li.appendChild(a);
+    var cap = el("div","cap");
+    cap.appendChild(el("b",null,t.cap));
+    if(v) cap.appendChild(el("span","small", v.ch+" · "+fmt(v.views)+" views"));
+    li.appendChild(cap); ul.appendChild(li);
+  });
+}
+
 var VCOLS = [
- {k:"thumb",label:"Thumbnail",cls:"nosort"},{k:"t",label:"Titolo",cls:""},{k:"ch",label:"Canale",cls:""},
- {k:"subs",label:"Iscritti",cls:"num"},{k:"views",label:"Views",cls:"num"},{k:"vps",label:"Views / iscritto",cls:"num"},
- {k:"durSec",label:"Durata",cls:"num"},{k:"pub",label:"Pubblicato",cls:""},{k:"cl",label:"Gruppo",cls:""},{k:"flag",label:"Note",cls:"nosort"}
+ {k:"thumb",label:"Thumbnail",cls:"ns"},{k:"t",label:"Titolo",cls:""},{k:"ch",label:"Canale",cls:""},
+ {k:"subs",label:"Iscritti",cls:"n"},{k:"views",label:"Views",cls:"n"},{k:"vps",label:"Views / iscritto",cls:"n"},
+ {k:"durSec",label:"Durata",cls:"n"},{k:"pub",label:"Pubblicato",cls:""},{k:"cl",label:"Famiglia",cls:""},{k:"flag",label:"Note",cls:"ns"}
 ];
 function renderHeadV(){
   var tr = document.getElementById("headV"); tr.textContent="";
   VCOLS.forEach(function(c){
     var th = el("th", c.cls, c.label);
-    if(c.cls.indexOf("nosort")<0){
+    if(c.cls.indexOf("ns")<0){
       th.addEventListener("click", function(){
-        if(stV.key===c.k) stV.dir=-stV.dir; else { stV.key=c.k; stV.dir=(c.cls.indexOf("num")>=0)?-1:1; }
+        if(stV.key===c.k) stV.dir=-stV.dir; else { stV.key=c.k; stV.dir=(c.cls.indexOf("n")>=0)?-1:1; }
         renderV();
       });
     }
@@ -477,13 +757,13 @@ function renderV(){
   if(!rows.length){ var t=el("tr"), c=el("td",null,"Nessun video corrisponde ai filtri."); c.colSpan=VCOLS.length; t.appendChild(c); body.appendChild(t); return; }
   rows.forEach(function(v){
     var tr = el("tr");
-    var tdI = el("td"); tdI.appendChild(thumb(v.id, v.t, true)); tr.appendChild(tdI);
-    var tdT = el("td","name"); tdT.appendChild(link("https://www.youtube.com/watch?v="+v.id, v.t)); tr.appendChild(tdT);
+    var tdI = el("td","thcs"); tdI.appendChild(thumb(v.id, v.t, true)); tr.appendChild(tdI);
+    var tdT = el("td","name"); tdT.appendChild(link(yt(v.id), v.t)); tr.appendChild(tdT);
     tr.appendChild(el("td",null,v.ch));
-    tr.appendChild(el("td","num",fmt(v.subs)));
-    tr.appendChild(el("td","num",fmt(v.views)));
-    tr.appendChild(el("td","num",fmt1(v.vps)+"x"));
-    tr.appendChild(el("td","num",v.dur));
+    tr.appendChild(el("td","n",fmt(v.subs)));
+    tr.appendChild(el("td","n",fmt(v.views)));
+    tr.appendChild(el("td","n",fmt1(v.vps)+"x"));
+    tr.appendChild(el("td","n",v.dur));
     var tdP = el("td",null,v.pub); tdP.appendChild(el("div","small",v.age+" giorni fa")); tr.appendChild(tdP);
     tr.appendChild(el("td",null,CLUSTERS[v.cl].name));
     var tdF = el("td"); if(v.ai) tdF.appendChild(el("span","badge bw","AI")); if(v.ip) tdF.appendChild(el("span","badge bw","Copyright")); tr.appendChild(tdF);
@@ -495,8 +775,9 @@ function renderV(){
   var chs = {}; ALLV.forEach(function(v){ chs[v.ch]=1; });
   document.getElementById("nVideos").textContent = String(ALLV.length);
   document.getElementById("nChannels").textContent = String(Object.keys(chs).length);
+  document.getElementById("fVideos").textContent = String(ALLV.length);
   var sel = document.getElementById("cl");
-  var all = el("option",null,"Tutti i gruppi"); all.value="all"; sel.appendChild(all);
+  var all = el("option",null,"Tutte le famiglie"); all.value="all"; sel.appendChild(all);
   CL.forEach(function(c){ var o=el("option",null,c.name); o.value=c.key; sel.appendChild(o); });
   sel.addEventListener("change", function(){ stV.cl=sel.value; renderV(); });
   document.getElementById("q").addEventListener("input", function(e){ stV.q=e.target.value; renderV(); });
@@ -510,7 +791,7 @@ function renderV(){
     });
   });
   document.getElementById("hideDone").addEventListener("click", function(e){ stC.hideDone=!stC.hideDone; e.currentTarget.setAttribute("aria-pressed", stC.hideDone?"true":"false"); renderC(); });
-  renderC(); renderV();
+  renderC(); renderPlan(); renderThumbs(); renderV();
 })();
 </script>
 </body>
