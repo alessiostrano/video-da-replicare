@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Video da replicare</title>
+<style>
+  :root {
+    --bg: #f6f5f1; --surface: #ffffff; --ink: #1d1d1b; --muted: #6b6a63; --line: #e3e1d8;
+    --accent: #1f5eff; --t1: #0f7b4b; --t1bg: #dff3e8; --t2: #8a5a00; --t2bg: #fbeccb;
+    --t3: #6b6a63; --t3bg: #ecebe5; --ai: #b3261e; --aibg: #fbe0dd;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413; --surface: #1d1d1b; --ink: #ecebe5; --muted: #a09f96; --line: #33322e;
+      --accent: #7aa2ff; --t1: #6fd4a2; --t1bg: #163626; --t2: #f0c060; --t2bg: #3a2e12;
+      --t3: #a09f96; --t3bg: #2a2926; --ai: #ff8f86; --aibg: #3d1f1c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1500px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  h2 { font-size: 17px; margin: 32px 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 16px; max-width: 900px; }
+  .rules { background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 16px; margin: 0 0 16px; max-width: 900px; }
+  .rules ul { margin: 6px 0 0; padding-left: 18px; }
+  .rules li { margin: 2px 0; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 12px; }
+  .bar input[type=search] { flex: 1 1 220px; min-width: 180px; padding: 8px 10px; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; }
+  .chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 6px 12px;
+    border-radius: 999px; cursor: pointer; font: inherit; }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 1380px; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  th { position: sticky; top: 0; background: var(--surface); font-size: 12px; text-transform: uppercase;
+    letter-spacing: .03em; color: var(--muted); white-space: nowrap; cursor: pointer; user-select: none; }
+  th.nosort { cursor: default; }
+  th[aria-sort="ascending"]::after { content: " ▲"; }
+  th[aria-sort="descending"]::after { content: " ▼"; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.done td { opacity: .45; }
+  tr.done td.title a { text-decoration: line-through; }
+  img.th { width: 128px; height: 72px; object-fit: cover; border-radius: 6px; background: var(--line); display: block; }
+  a { color: var(--accent); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .b1 { background: var(--t1bg); color: var(--t1); }
+  .b2 { background: var(--t2bg); color: var(--t2); }
+  .b3 { background: var(--t3bg); color: var(--t3); }
+  .bai { background: var(--aibg); color: var(--ai); margin-left: 4px; }
+  .small { color: var(--muted); font-size: 12px; }
+  .title { min-width: 240px; font-weight: 600; }
+  .note { min-width: 260px; }
+  .excl td { opacity: .85; }
+  footer { color: var(--muted); font-size: 12px; margin-top: 24px; max-width: 900px; }
+  @media (max-width: 600px) { h1 { font-size: 20px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Video da replicare</h1>
+  <p class="sub">Video lunghi di canali piccoli che stanno andando bene ora, in ordine di priorità. Dati vidIQ del 16 nov 2026. Escluse le premesse che hai già fatto sul tuo canale.</p>
+
+  <div class="rules">
+    <strong>Come è calcolata la priorità</strong>
+    <ul>
+      <li><span class="badge b1">Subito</span> non AI, fino a 15 min, almeno 80K views e almeno 25 views per iscritto (il video ha battuto di molto la dimensione del suo canale).</li>
+      <li><span class="badge b2">Presto</span> non AI, fino a 15 min, ma con meno views per iscritto o meno views totali.</li>
+      <li><span class="badge b3">Dopo / valuta</span> etichettato AI da vidIQ, oltre 15 min, canale sotto i 1.000 iscritti (dato poco affidabile) o canale già grande (poche views per iscritto).</li>
+      <li>Dentro ogni gruppo, l'ordine è per views per iscritto, dal più alto. Clicca un'intestazione per riordinare. La spunta "Fatto" resta salvata in questo browser.</li>
+    </ul>
+  </div>
+
+  <div class="bar">
+    <input type="search" id="q" placeholder="Cerca per titolo o canale" aria-label="Cerca per titolo o canale">
+    <button class="chip" data-filter="all" aria-pressed="true">Tutti</button>
+    <button class="chip" data-filter="1" aria-pressed="false">Subito</button>
+    <button class="chip" data-filter="2" aria-pressed="false">Presto</button>
+    <button class="chip" data-filter="3" aria-pressed="false">Dopo / valuta</button>
+    <button class="chip" id="hideDone" aria-pressed="false">Nascondi fatti</button>
+  </div>
+
+  <div class="wrap">
+    <table id="tbl">
+      <thead><tr id="head"></tr></thead>
+      <tbody id="body"></tbody>
+    </table>
+  </div>
+
+  <h2>Esclusi: premesse che hai già fatto</h2>
+  <p class="sub">Servono solo come confronto di packaging (titolo e thumbnail) con i tuoi video.</p>
+  <div class="wrap">
+    <table style="min-width: 1100px">
+      <thead><tr>
+        <th class="nosort">Thumbnail</th><th class="nosort">Titolo</th><th class="nosort">Canale</th>
+        <th class="nosort num">Iscritti</th><th class="nosort num">Views</th><th class="nosort num">Durata</th>
+        <th class="nosort">Tuo video equivalente</th>
+      </tr></thead>
+      <tbody id="excl"></tbody>
+    </table>
+  </div>
+
+  <footer>
+    Fonte: vidIQ (ricerca outlier long-form, canali sotto i 300K iscritti). Le views crescono ancora, quindi i numeri sono una fotografia.
+    "Views per iscritto" e "Views al giorno" sono calcolate qui dai dati. Non ho visto thumbnail né trascrizioni dei video:
+    questa tabella dice cosa funziona, non perché. Il canale ha ancora pochi dati per confrontare il packaging, quindi apri le thumbnail a fianco delle tue.
+  </footer>
+</main>
+
+<script>
+//<core>
+var DATA_DATE = new Date("2026-11-16T12:00:00Z");
+var VIDEOS = [
+  { id:"2TsZSQ77E9o", title:"What If You Could See Everyone's IQ?", ch:"ConChaser", chId:"UCt-GhchW5nGSjr-ETeGab_g", subs:28600, views:2200000, bo:6.9, dur:"13:51", pub:"2026-10-30", ai:false, grp:"Poteri",
+    note:"Premessa non romantica e il numero più alto della lista. Lo stesso canale ha una variante \"Biggest Regret\" con 297K views: lo schema \"vedi X di tutti\" ha funzionato due volte." },
+  { id:"-WSNwX37CK4", title:"What If Your Punches Were 100x Faster?", ch:"If Then Tales", chId:"UCw64rZoaOh2LNVpo_obsY-Q", subs:4800, views:276500, bo:1.7, dur:"8:02", pub:"2026-10-19", ai:false, grp:"Poteri",
+    note:"Potere fisico semplice da visualizzare in animazione. 8 minuti, in linea con i tuoi." },
+  { id:"4JWGUkwnVgs", title:"What If You Got Stuck on a Girls Only Island?", ch:"What If Hero", chId:"UCAKHpKPS8gcxnRu_sR7Rl7g", subs:5300, views:277800, bo:15, dur:"8:01", pub:"2026-11-02", ai:false, grp:"Solo tu tra ragazze",
+    note:"Stessa idea della tua scuola, ma ambiente diverso (isola): non ripete una premessa già fatta." },
+  { id:"fFziW8Hgf84", title:"What if You Were The Last Girl On Earth?", ch:"Awaken", chId:"UCAGRnC0u-hiBa7eUvrFtFow", subs:24400, views:815100, bo:1, dur:"8:09", pub:"2026-10-30", ai:false, grp:"Solo tu tra ragazze",
+    note:"Vicina al tuo \"Last 2 Humans\" (12 views), ma con un punto di vista preciso. Confronta il packaging prima di rifarla." },
+  { id:"_C-S9ajIvPw", title:"What If Every Girl You Looked At Fell In Love?", ch:"Billy Bob", chId:"UC1uyGFZCVKa09rItgpg2Rfw", subs:2500, views:82400, bo:9.5, dur:"9:40", pub:"2026-10-30", ai:false, grp:"Cambio genere / romantico",
+    note:"Premessa a effetto con una conseguenza chiara. Canale da 2,5K iscritti." },
+  { id:"LQC2nR89C78", title:"What If Everyone Turned Into a Baby Except You?", ch:"One Small If", chId:"UCLSZ9gGZkwioZMDSBClwxgg", subs:6600, views:190800, bo:11, dur:"9:13", pub:"2026-10-29", ai:false, grp:"Poteri",
+    note:"Il mondo cambia e tu no. Esiste anche la variante \"Kids\" (Iffinity Tales, 125K views): schema confermato da due canali." },
+  { id:"_avpLb8Y0Dk", title:"What If You Were the Only Boy Stranded in Space?", ch:"What If Hero", chId:"UCAKHpKPS8gcxnRu_sR7Rl7g", subs:5300, views:138700, bo:1.6, dur:"8:05", pub:"2026-11-06", ai:false, grp:"Solo tu tra ragazze",
+    note:"Formula \"solo ragazzo\" in un ambiente nuovo. Stesso canale della #3: formula ripetuta due volte." },
+  { id:"Q1qNv5TkI-E", title:"What IF Your Bully Turned Into a Girl?", ch:"Flowstate Motion", chId:"UCYbIl0eyQSt3MyaVdmq55Zg", subs:3900, views:94300, bo:37, dur:"8:44", pub:"2026-11-14", ai:false, grp:"Cambio genere / romantico",
+    note:"Uscito ieri e già 94K views (circa 500 views/ora secondo vidIQ): tendenza in corso." },
+  { id:"ihVNkBLEoBQ", title:"What IF You Could Swap Genders Instantly?", ch:"Doodled Stories", chId:"UCjnrmFuSNZohVL7NTbGAoOw", subs:5200, views:115700, bo:165, dur:"9:05", pub:"2026-11-08", ai:false, grp:"Cambio genere / romantico",
+    note:"Tema affollato: nella lista ce ne sono altri due simili. Serve un angolo diverso." },
+  { id:"FDM8U8c5KDg", title:"What IF You Were the Only Guy at a Girls Summer Camp ?", ch:"Price of If", chId:"UCGDYkZRg0XKIc3Oa2v-XgNA", subs:5500, views:82300, bo:12, dur:"14:07", pub:"2026-11-01", ai:false, grp:"Solo tu tra ragazze",
+    note:"14 minuti, più lungo del tuo standard. Premessa in linea con la tua scuola ma non uguale." },
+  { id:"jmgHFKpgB9U", title:"What If You Could Talk to Animals?", ch:"Ifsphere", chId:"UCAWsiuGuCzzavd_2YOBR7eA", subs:5600, views:81100, bo:4, dur:"6:49", pub:"2026-10-18", ai:false, grp:"Poteri",
+    note:"Rendimento più basso della lista (views per iscritto basse e crescita lenta). Tienilo di riserva." },
+  { id:"ERc-wzJo5-Q", title:"What If You and Your Crush Stopped Aging at 18?", ch:"Ifique", chId:"UCZCIDMFJ5HY5Wc0-sz2eA2w", subs:556, views:156900, bo:1271, dur:"6:55", pub:"2026-11-12", ai:true, grp:"Cotta / relazione",
+    note:"Caso estremo: 4 giorni, 556 iscritti. Un singolo hit su un canale così piccolo difficilmente si ripete." },
+  { id:"wz5KUHUDCNc", title:"What If You Turned Into a Girl?", ch:"Noobie Panda", chId:"UCYV5eLgiF8MTGWTo5okrTzA", subs:176, views:38600, bo:609, dur:"5:15", pub:"2026-11-09", ai:true, grp:"Cambio genere / romantico",
+    note:"Canale da 176 iscritti: il rapporto views/iscritti non è affidabile." },
+  { id:"QSfzzQLK8PI", title:"Zombie Outbreak: 7 Days to Build a Bunker", ch:"Thinkdots", chId:"UCIgqKdnxbcAV5rG_3gFjq0g", subs:4100, views:225900, bo:123, dur:"9:34", pub:"2026-11-03", ai:true, grp:"Sopravvivenza",
+    note:"Genere diverso dal tuo (sopravvivenza). Etichettato AI da vidIQ." },
+  { id:"RsnpKukfvlw", title:"What If You Turned Into A Girl?", ch:"Stupid Dupid", chId:"UCkMQyMQcjJtKCiT_Rig1xow", subs:24500, views:460700, bo:1.5, dur:"21:11", pub:"2026-11-06", ai:false, grp:"Cambio genere / romantico",
+    note:"21 minuti: produzione costosa. Stesso canale ha altri video da ~20 minuti con buone views." },
+  { id:"n574MnG1t4w", title:"What IF You Were the ONLY GUY at a Girls Only Sleepover?", ch:"Jeremy Bearimy", chId:"UCIHVYxXnwAzTvNU0PE_ZLsg", subs:59000, views:191700, bo:1.2, dur:"10:53", pub:"2026-11-03", ai:false, grp:"Solo tu tra ragazze",
+    note:"Canale già da 59K iscritti: l'effetto dimensione è basso." },
+  { id:"6hd_pq8Z_8w", title:"What IF You Could See Everyone's Biggest Fear?", ch:"Jeremy Bearimy", chId:"UCIHVYxXnwAzTvNU0PE_ZLsg", subs:59000, views:160400, bo:1.1, dur:"10:48", pub:"2026-10-30", ai:false, grp:"Poteri",
+    note:"Stesso schema \"vedi X di tutti\" del video IQ, ma su un canale già grande." }
+];
+var EXCLUDED = [
+  { id:"SCEGYw2LjG4", title:"What IF You Were the ONLY GUY at a Girls Only School?", ch:"Jeremy Bearimy", subs:59000, views:1000000, dur:"10:14", mine:"Only Boy At A Girls' School (342 views)" },
+  { id:"Ch0dzLbd8Y0", title:"What If You Were the Only Boy in an All-Girls School?", ch:"WhatVerse", subs:3700, views:227800, dur:"5:01", mine:"Only Boy At A Girls' School (342 views)" },
+  { id:"hLNpGNDuFcY", title:"What If You Were the Only Person in a Bunker With Your Crush", ch:"Stupid Dupid", subs:24500, views:89700, dur:"21:07", mine:"Stuck in a Bunker With Your Crush (88 views)" }
+];
+
+function durSec(s){ var p=s.split(":").map(Number); return p.length===3 ? p[0]*3600+p[1]*60+p[2] : p[0]*60+p[1]; }
+function daysSince(iso){ return Math.max(1, Math.floor((DATA_DATE - new Date(iso+"T12:00:00Z"))/86400000)); }
+
+function tierOf(v){
+  var reasons=[];
+  if(v.ai) reasons.push("Etichettato AI da vidIQ: rischio contenuto in serie.");
+  if(v.durSec>900) reasons.push("Oltre 15 minuti: produzione costosa.");
+  if(v.vps<10) reasons.push("Poche views per iscritto: il canale era già grande.");
+  if(v.subs<1000) reasons.push("Canale sotto i 1.000 iscritti: dato poco affidabile.");
+  if(reasons.length) return {tier:3, reasons:reasons};
+  if(v.vps>=25 && v.views>=80000) return {tier:1, reasons:[]};
+  return {tier:2, reasons:[]};
+}
+
+function buildRows(){
+  var rows = VIDEOS.map(function(v){
+    var r = Object.assign({}, v);
+    r.durSec = durSec(v.dur);
+    r.days = daysSince(v.pub);
+    r.vps = v.views / v.subs;
+    r.vpd = v.views / r.days;
+    var t = tierOf(r);
+    r.tier = t.tier; r.reasons = t.reasons;
+    return r;
+  });
+  rows.sort(function(a,b){ return a.tier-b.tier || b.vps-a.vps; });
+  rows.forEach(function(r,i){ r.rank = i+1; });
+  return rows;
+}
+//</core>
+
+var TIER_LABEL = {1:"Subito", 2:"Presto", 3:"Dopo / valuta"};
+var COLS = [
+  {k:"rank",  label:"#",               cls:"num"},
+  {k:"tier",  label:"Priorità",        cls:""},
+  {k:"thumb", label:"Thumbnail",       cls:"nosort"},
+  {k:"title", label:"Titolo",          cls:""},
+  {k:"ch",    label:"Canale",          cls:""},
+  {k:"views", label:"Views",           cls:"num"},
+  {k:"subs",  label:"Iscritti",        cls:"num"},
+  {k:"vps",   label:"Views / iscritto",cls:"num"},
+  {k:"bo",    label:"Breakout",        cls:"num"},
+  {k:"vpd",   label:"Views / giorno",  cls:"num"},
+  {k:"durSec",label:"Durata",          cls:"num"},
+  {k:"pub",   label:"Pubblicato",      cls:""},
+  {k:"grp",   label:"Gruppo",          cls:""},
+  {k:"note",  label:"Note per replicarlo", cls:"nosort"},
+  {k:"done",  label:"Fatto",           cls:"nosort"}
+];
+
+var ROWS = [];
+var state = { sortKey:"rank", dir:1, filter:"all", q:"", hideDone:false };
+var DONE = {};
+try { DONE = JSON.parse(localStorage.getItem("itrc-done-v1") || "{}") || {}; } catch(e) { DONE = {}; }
+function saveDone(){ try { localStorage.setItem("itrc-done-v1", JSON.stringify(DONE)); } catch(e) {} }
+
+function fmt(n){ return n.toLocaleString("it-IT"); }
+function fmt1(n){ return n.toLocaleString("it-IT", {maximumFractionDigits:1}); }
+function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+function link(href, text){ var a=el("a",null,text); a.href=href; a.target="_blank"; a.rel="noopener"; return a; }
+
+function renderHead(){
+  var tr = document.getElementById("head"); tr.textContent = "";
+  COLS.forEach(function(c){
+    var th = el("th", (c.cls||""), c.label);
+    if(c.cls.indexOf("nosort")<0){
+      th.addEventListener("click", function(){
+        if(state.sortKey===c.k) state.dir = -state.dir; else { state.sortKey=c.k; state.dir = (c.cls.indexOf("num")>=0 && c.k!=="rank") ? -1 : 1; }
+        render();
+      });
+    }
+    if(state.sortKey===c.k) th.setAttribute("aria-sort", state.dir===1?"ascending":"descending");
+    tr.appendChild(th);
+  });
+}
+
+function visibleRows(){
+  var q = state.q.trim().toLowerCase();
+  var out = ROWS.filter(function(r){
+    if(state.filter!=="all" && String(r.tier)!==state.filter) return false;
+    if(state.hideDone && DONE[r.id]) return false;
+    if(q && (r.title+" "+r.ch+" "+r.grp).toLowerCase().indexOf(q)<0) return false;
+    return true;
+  });
+  var k = state.sortKey, d = state.dir;
+  out.sort(function(a,b){
+    var x=a[k], y=b[k];
+    if(typeof x==="string") return d * x.localeCompare(y, "it");
+    return d * (x-y);
+  });
+  return out;
+}
+
+function render(){
+  renderHead();
+  var body = document.getElementById("body"); body.textContent = "";
+  var rows = visibleRows();
+  if(!rows.length){
+    var tr0=el("tr"), td0=el("td",null,"Nessun video corrisponde ai filtri."); td0.colSpan=COLS.length; tr0.appendChild(td0); body.appendChild(tr0); return;
+  }
+  rows.forEach(function(r){
+    var tr = el("tr", DONE[r.id] ? "done" : "");
+    tr.appendChild(el("td","num",String(r.rank)));
+
+    var tdT = el("td"); var b = el("span","badge b"+r.tier,TIER_LABEL[r.tier]); tdT.appendChild(b);
+    if(r.ai) tdT.appendChild(el("span","badge bai","AI"));
+    r.reasons.forEach(function(x){ tdT.appendChild(el("div","small",x)); });
+    tr.appendChild(tdT);
+
+    var tdI = el("td"); var a = link("https://www.youtube.com/watch?v="+r.id, "");
+    var img = document.createElement("img"); img.className="th"; img.loading="lazy"; img.alt="Thumbnail: "+r.title;
+    img.src = "https://i.ytimg.com/vi/"+r.id+"/mqdefault.jpg"; a.appendChild(img); tdI.appendChild(a); tr.appendChild(tdI);
+
+    var tdN = el("td","title"); tdN.appendChild(link("https://www.youtube.com/watch?v="+r.id, r.title)); tr.appendChild(tdN);
+
+    var tdC = el("td"); tdC.appendChild(link("https://www.youtube.com/channel/"+r.chId, r.ch)); tr.appendChild(tdC);
+
+    tr.appendChild(el("td","num",fmt(r.views)));
+    tr.appendChild(el("td","num",fmt(r.subs)));
+    tr.appendChild(el("td","num",fmt1(r.vps)+"x"));
+    tr.appendChild(el("td","num",fmt1(r.bo)+"x"));
+    tr.appendChild(el("td","num",fmt(Math.round(r.vpd))));
+    tr.appendChild(el("td","num",r.dur));
+    var tdP = el("td",null,r.pub); tdP.appendChild(el("div","small",r.days+" giorni fa")); tr.appendChild(tdP);
+    tr.appendChild(el("td",null,r.grp));
+    tr.appendChild(el("td","note",r.note));
+
+    var tdD = el("td"); var cb = document.createElement("input"); cb.type="checkbox"; cb.checked=!!DONE[r.id];
+    cb.setAttribute("aria-label","Segna come fatto: "+r.title);
+    cb.addEventListener("change", function(){ if(cb.checked) DONE[r.id]=true; else delete DONE[r.id]; saveDone(); render(); });
+    tdD.appendChild(cb); tr.appendChild(tdD);
+    body.appendChild(tr);
+  });
+}
+
+function renderExcluded(){
+  var body = document.getElementById("excl"); body.textContent="";
+  EXCLUDED.forEach(function(r){
+    var tr = el("tr","excl");
+    var tdI = el("td"); var a = link("https://www.youtube.com/watch?v="+r.id,"");
+    var img = document.createElement("img"); img.className="th"; img.loading="lazy"; img.alt="Thumbnail: "+r.title;
+    img.src="https://i.ytimg.com/vi/"+r.id+"/mqdefault.jpg"; a.appendChild(img); tdI.appendChild(a); tr.appendChild(tdI);
+    var tdN = el("td","title"); tdN.appendChild(link("https://www.youtube.com/watch?v="+r.id, r.title)); tr.appendChild(tdN);
+    tr.appendChild(el("td",null,r.ch));
+    tr.appendChild(el("td","num",fmt(r.subs)));
+    tr.appendChild(el("td","num",fmt(r.views)));
+    tr.appendChild(el("td","num",r.dur));
+    tr.appendChild(el("td",null,r.mine));
+    body.appendChild(tr);
+  });
+}
+
+ROWS = buildRows();
+document.getElementById("q").addEventListener("input", function(e){ state.q = e.target.value; render(); });
+Array.prototype.forEach.call(document.querySelectorAll(".chip[data-filter]"), function(btn){
+  btn.addEventListener("click", function(){
+    state.filter = btn.getAttribute("data-filter");
+    Array.prototype.forEach.call(document.querySelectorAll(".chip[data-filter]"), function(b){ b.setAttribute("aria-pressed", b===btn ? "true":"false"); });
+    render();
+  });
+});
+document.getElementById("hideDone").addEventListener("click", function(e){
+  state.hideDone = !state.hideDone; e.currentTarget.setAttribute("aria-pressed", state.hideDone ? "true":"false"); render();
+});
+renderExcluded();
+render();
+</script>
+</body>
+</html>
