@@ -79,7 +79,7 @@
   th { background: var(--surface); position: sticky; top: 0; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); white-space: nowrap; }
   td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
   tr.done td { opacity: .45; }
-  .t-clusters { min-width: 1340px; } .t-channels { min-width: 820px; } .t-hooks { min-width: 980px; } .t-plan { min-width: 980px; } .t-videos { min-width: 1200px; }
+  .t-clusters { min-width: 1340px; } .t-channels { min-width: 820px; } .t-hooks { min-width: 980px; } .t-plan { min-width: 980px; } .t-own { min-width: 640px; } .t-videos { min-width: 1200px; }
   #tblV th { cursor: pointer; user-select: none; } #tblV th.ns { cursor: default; }
   th[aria-sort="ascending"]::after { content: " ▲"; } th[aria-sort="descending"]::after { content: " ▼"; }
 
@@ -125,7 +125,7 @@
 
 <nav class="top" aria-label="Sezioni">
   <div class="wrap">
-    <a href="#sintesi">Sintesi</a><a href="#premesse">Premesse</a><a href="#canali">Canali</a><a href="#thumbnail">Thumbnail</a>
+    <a href="#sintesi">Sintesi</a><a href="#canale">Il tuo canale</a><a href="#premesse">Premesse</a><a href="#canali">Canali</a><a href="#thumbnail">Thumbnail</a>
     <a href="#hook">Hook</a><a href="#piano">Piano</a><a href="#limiti">Limiti</a><a href="#database">Database</a>
   </div>
 </nav>
@@ -163,7 +163,62 @@
     <li><strong>Il volume è alto.</strong> I 4 canali pubblicano circa 1 video al giorno e provano molte premesse. Il successo è un portafoglio di tentativi.</li>
     <li><strong>Gli iscritti arrivano piano.</strong> Circa 2–5 iscritti ogni 1.000 views. Un video da 100K views vale nell'ordine di 240–500 iscritti (stima per eccesso).</li>
     <li><strong>La media di un canale nuovo è molto più bassa.</strong> I 30 canali che vidIQ indica come simili a un canale nuovo del genere hanno tutti meno di 400 views di media a video. I video di questa pagina sono le eccezioni.</li>
+    <li><strong>Il tuo canale oggi.</strong> I video lunghi hanno avuto 9,1K impressioni in 28 giorni (circa 1.300 a video), un CTR del 2,7% e una durata media di visualizzazione del 25%. Il 39% degli spettatori del tuo video migliore se ne va entro 30 secondi. Dettagli nella sezione “Il tuo canale”.</li>
   </ol>
+</div></section>
+
+<section id="canale"><div class="wrap">
+  <h2>Il tuo canale oggi, dai dati di Studio</h2>
+  <p class="sub">Letti da YouTube Studio il 16 novembre 2026. Video lunghi degli ultimi 28 giorni, salvo dove indicato. I numeri cambiano ancora.</p>
+
+  <h3>Video lunghi, ultimi 28 giorni</h3>
+  <div class="tw">
+    <table class="t-own">
+      <thead><tr><th>Metrica</th><th class="n">Valore</th><th>Nota</th></tr></thead>
+      <tbody>
+        <tr><td>Impressioni delle miniature</td><td class="n">9,1K</td><td>Per 7 video lunghi pubblicati in 11 giorni, circa 1.300 a video.</td></tr>
+        <tr><td>CTR delle miniature</td><td class="n">2,7%</td><td>Non ho il CTR dei canali vincenti per confrontarlo.</td></tr>
+        <tr><td>Visualizzazioni</td><td class="n">541</td><td>Solo video lunghi, senza gli Short.</td></tr>
+        <tr><td>Durata media di visualizzazione</td><td class="n">1:57</td><td>Su video di circa 8 minuti: circa il 25%.</td></tr>
+        <tr><td>Da dove arrivano gli spettatori</td><td class="n">47,7% e 25,3%</td><td>Video consigliati 47,7%, funzionalità di navigazione 25,3%.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Il video migliore: “Only Boy”, dalla pubblicazione</h3>
+  <div class="tw">
+    <table class="t-own">
+      <thead><tr><th>Metrica</th><th class="n">Valore</th><th>Nota</th></tr></thead>
+      <tbody>
+        <tr><td>Visualizzazioni</td><td class="n">343</td><td>Quasi tutte nei primi 4 giorni. Nelle ultime 48 ore sono 15.</td></tr>
+        <tr><td>Tempo di visualizzazione</td><td class="n">9,8 ore</td><td></td></tr>
+        <tr><td>Ancora presenti a 0:30</td><td class="n">60,8%</td><td>Circa 4 spettatori su 10 se ne vanno entro 30 secondi.</td></tr>
+        <tr><td>Durata media</td><td class="n">2:02 (25%)</td><td>Il video dura 8:05.</td></tr>
+        <tr><td>Iscritti guadagnati</td><td class="n">+1</td><td>Circa 3 ogni 1.000 views, nell'intervallo degli altri canali. Con un solo iscritto il dato non è significativo.</td></tr>
+        <tr><td>Like, commenti, condivisioni</td><td class="n">4, 0, 0</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Lo Short e il canale</h3>
+  <div class="tw">
+    <table class="t-own">
+      <thead><tr><th>Metrica</th><th class="n">Valore</th><th>Nota</th></tr></thead>
+      <tbody>
+        <tr><td>Short “900 girls turned around…”</td><td class="n">1,2K views</td><td>In 1 giorno e 5 ore, con 67,9% di percentuale media visualizzata e 24 like.</td></tr>
+        <tr><td>Views totali del canale</td><td class="n">1,7K</td><td>Ultimi 28 giorni: 541 dai video lunghi e circa 1,2K dallo Short.</td></tr>
+        <tr><td>Iscritti totali</td><td class="n">5</td><td>Cinque in più negli ultimi 28 giorni.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cosa ne ricavo</h3>
+  <ul class="clean">
+    <li><strong>La distribuzione è il primo collo di bottiglia.</strong> YouTube ha mostrato poco i video lunghi: circa 1.300 impressioni a video. Non ho le impressioni dei vincitori, ma le loro views mediane (da 7K a 79K) implicano numeri molto più alti.</li>
+    <li><strong>Il calo iniziale è forte.</strong> Il 39% se ne va entro 30 secondi e la durata media è il 25%. È coerente con le aperture lette (frasi lunghe, nessun limite o posta nei primi secondi), ma non è una prova.</li>
+    <li><strong>Lo Short è l'unico contenuto con distribuzione.</strong> Usa la stessa riga di apertura del video lungo e ha 1,2K views con il 67,9% visualizzato. Suggerisce che l'immagine funziona. Non garantisce che il video lungo funzionerà.</li>
+    <li><strong>Gli iscritti sono pochi per ora.</strong> Con 5 iscritti totali il dato non permette stime. Il rapporto degli altri canali (2–5 ogni 1.000 views) resta il riferimento.</li>
+  </ul>
 </div></section>
 
 <section id="premesse"><div class="wrap">
