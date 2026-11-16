@@ -23,55 +23,63 @@
     font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
   main { max-width: 1500px; margin: 0 auto; padding: 24px 16px 64px; }
   h1 { font-size: 24px; margin: 0 0 4px; }
-  h2 { font-size: 17px; margin: 32px 0 8px; }
+  h2 { font-size: 17px; margin: 36px 0 8px; }
   .sub { color: var(--muted); margin: 0 0 16px; max-width: 920px; }
   .box { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; margin: 0 0 16px; max-width: 920px; }
   .box.warn { border-color: var(--warn); }
   .box ul { margin: 6px 0 0; padding-left: 18px; }
   .box li { margin: 3px 0; }
   .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 12px; }
+  .bar input[type=search] { flex: 1 1 220px; min-width: 180px; padding: 8px 10px; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; }
+  .bar select { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; }
   .chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 6px 12px; border-radius: 999px; cursor: pointer; font: inherit; }
   .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
   .wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
-  table { border-collapse: collapse; width: 100%; min-width: 1320px; }
+  table { border-collapse: collapse; width: 100%; }
+  #tblC { min-width: 1380px; } #tblV { min-width: 1250px; }
   th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
   th { position: sticky; top: 0; background: var(--surface); font-size: 12px; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); white-space: nowrap; }
+  #tblV th { cursor: pointer; user-select: none; } #tblV th.nosort { cursor: default; }
+  th[aria-sort="ascending"]::after { content: " ▲"; } th[aria-sort="descending"]::after { content: " ▼"; }
   td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
   tr.done td { opacity: .45; }
   img.th { width: 144px; height: 81px; object-fit: cover; border-radius: 6px; background: var(--line); display: block; }
+  img.th.s { width: 112px; height: 63px; }
   a { color: var(--accent); }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
   .bA { background: var(--abg); color: var(--a); } .bB { background: var(--bbg); color: var(--b); } .bC { background: var(--cbg); color: var(--c); }
+  .bw { background: var(--warnbg); color: var(--warn); margin-left: 4px; }
   .small { color: var(--muted); font-size: 12px; }
   .name { min-width: 230px; font-weight: 600; }
   .ev { min-width: 300px; } .ev div { margin: 0 0 4px; }
   .txt { min-width: 240px; }
-  .tag-ai { color: var(--warn); font-weight: 600; }
   footer { color: var(--muted); font-size: 12px; margin-top: 24px; max-width: 920px; }
 </style>
 </head>
 <body>
 <main>
   <h1>Idee video ad alto potenziale</h1>
-  <p class="sub">Premesse da replicare per far crescere views e iscritti, ordinate per quanta prova hanno nei dati. Fonte vidIQ, 16 nov 2026. Tutte le premesse sono "una regola della realtà che cambia", coerenti con il nome del canale.</p>
+  <p class="sub">Premesse "una regola della realtà cambia", ordinate per quante prove hanno nei dati. Campione: <span id="nVideos"></span> video unici, <span id="nChannels"></span> canali. Fonte vidIQ, 16 nov 2026.</p>
 
   <div class="box warn">
     <strong>Leggi prima: cosa i dati NON dicono</strong>
     <ul>
-      <li><strong>Sono solo vincitori.</strong> I 30 canali che vidIQ indica come simili al tuo hanno quasi tutti 0–22 iscritti e in media 27–377 views per video. I video qui sotto sono le eccezioni, non la media: aspettati varianza alta e testa 3–5 video prima di giudicare.</li>
-      <li><strong>Views non sono iscritti.</strong> vidIQ non mostra gli iscritti guadagnati per video. Per gli iscritti la mossa più sensata è fare una serie sulla stessa famiglia di premesse, ma è un'ipotesi, non un dato.</li>
-      <li><strong>Nessun canale è un "copia e incolla".</strong> Molti canali hanno rifatto la stessa premessa nelle stesse due settimane: la saturazione è alta e la tendenza può finire presto.</li>
-      <li>Non ho visto thumbnail né trascrizioni dei video qui sotto, quindi non so ancora <em>perché</em> funzionano.</li>
+      <li><strong>Sono solo vincitori.</strong> Tutti i video sono stati trovati con ricerche "outlier" (minimo 20–50K views). Qui non ci sono i video flop, quindi non si può calcolare una percentuale di successo. I 30 canali che vidIQ indica come simili al tuo hanno quasi tutti 0–22 iscritti e in media 27–377 views per video: quella è la media reale.</li>
+      <li><strong>Views non sono iscritti.</strong> vidIQ non mostra gli iscritti guadagnati per video.</li>
+      <li><strong>Saturazione e finestra breve.</strong> Quasi tutti i video sono di ottobre–novembre 2026. Più canali rifanno la stessa premessa nelle stesse settimane: la tendenza può finire presto.</li>
+      <li>Non ho visto thumbnail né trascrizioni, quindi non so ancora <em>perché</em> funzionano.</li>
     </ul>
   </div>
 
   <div class="box">
-    <strong>Come è calcolata la priorità</strong>
+    <strong>Come è calcolata la priorità</strong> (dati calcolati qui, per ogni gruppo di premesse)
     <ul>
-      <li><span class="badge bA">Alto</span> almeno 3 canali diversi hanno fatto la premessa, almeno 2 canali sotto i 30K iscritti hanno superato 150K views (video non AI), il video più recente ha meno di 21 giorni e la durata mediana è fino a 15 min.</li>
-      <li><span class="badge bB">Promettente</span> almeno un canale sotto i 30K iscritti ha superato 150K views (video non AI), ma manca la conferma di più canali o è più vecchio.</li>
-      <li><span class="badge bC">Da testare</span> prove deboli, solo canali grandi o video segnati AI.</li>
-      <li>Dentro ogni gruppo l'ordine è per views del video migliore non AI. Le colonne sono calcolate qui dai dati. Spunta "Fatto" per escludere un'idea: resta salvata nel browser.</li>
+      <li><strong>Hit piccole</strong> = canali diversi sotto i 30K iscritti con almeno un video sopra 150K views, esclusi i video segnati AI e quelli con personaggi con copyright.</li>
+      <li><span class="badge bA">Alto</span> almeno 4 hit piccole, views mediane del gruppo (video non AI) sopra 150K e video più recente di meno di 21 giorni.</li>
+      <li><span class="badge bB">Promettente</span> almeno 2 hit piccole.</li>
+      <li><span class="badge bC">Da testare</span> meno di 2 hit piccole.</li>
+      <li>Dentro ogni livello l'ordine è per numero di hit piccole, poi per views mediane. Spunta "Fatta" per escludere un gruppo: resta salvato nel browser.</li>
     </ul>
   </div>
 
@@ -84,189 +92,397 @@
   </div>
 
   <div class="wrap">
-    <table>
+    <table id="tblC">
       <thead><tr>
-        <th class="num">#</th><th>Priorità</th><th>Thumbnail</th><th>Premessa</th>
-        <th class="num">Canali</th><th class="num">Best views</th><th class="num">Hit &lt;30K iscritti</th>
-        <th class="num">Durata mediana</th><th>Più recente</th><th>Prove (video)</th>
-        <th>Come farlo tuo (ipotesi)</th><th>Rischi</th><th>Fatta</th>
+        <th class="num">#</th><th>Priorità</th><th>Thumbnail</th><th>Gruppo di premesse</th>
+        <th class="num">Video</th><th class="num">Canali</th><th class="num">Hit piccole</th>
+        <th class="num">Views mediane</th><th class="num">Best views</th><th class="num">Durata mediana</th><th>Più recente</th>
+        <th>Prove migliori</th><th>Come farlo tuo (ipotesi)</th><th>Rischi</th><th>Fatta</th>
       </tr></thead>
-      <tbody id="body"></tbody>
+      <tbody id="bodyC"></tbody>
+    </table>
+  </div>
+
+  <h2>Tutti i video del campione</h2>
+  <p class="sub">Clicca un'intestazione per ordinare. Il filtro per gruppo usa gli stessi gruppi della tabella sopra.</p>
+  <div class="bar">
+    <input type="search" id="q" placeholder="Cerca per titolo o canale" aria-label="Cerca per titolo o canale">
+    <select id="cl" aria-label="Filtra per gruppo"></select>
+    <button class="chip" id="onlySmall" aria-pressed="false">Solo canali sotto 30K</button>
+    <button class="chip" id="noFlag" aria-pressed="false">Nascondi AI e copyright</button>
+  </div>
+  <div class="wrap">
+    <table id="tblV">
+      <thead><tr id="headV"></tr></thead>
+      <tbody id="bodyV"></tbody>
     </table>
   </div>
 
   <h2>Segnale da tenere d'occhio</h2>
   <div class="box">
     <ul>
-      <li><strong>"What if history"</strong> risulta in crescita come ricerca (+262,8% in una settimana, circa 298K ricerche al mese stimate da vidIQ). Non ho trovato video di prova: è solo un segnale da testare con un video, non una premessa verificata.</li>
+      <li><strong>"What if history"</strong> risulta in crescita come ricerca (+262,8% in una settimana, circa 298K ricerche al mese stimate da vidIQ). Non ho trovato video di prova: è un segnale da testare, non una premessa verificata.</li>
       <li>Le altre keyword in crescita sono quasi tutte Roblox ("In This Town", "In This World"): un genere diverso dal tuo.</li>
     </ul>
   </div>
 
   <footer>
-    Fonte: vidIQ, ricerche outlier long-form e canali simili del 16 nov 2026. Le views crescono ancora. "Hit &lt;30K iscritti" conta i canali diversi sotto i 30K iscritti con un video non AI sopra 150K views.
-    Esclusa la premessa "solo ragazzo tra ragazze", che hai già fatto.
+    Fonte: vidIQ, ricerche outlier long-form e canali simili del 16 nov 2026. Le views crescono ancora. Esclusi: la premessa "solo ragazzo in una scuola di ragazze" e il bunker con la cotta, che hai già fatto. Esclusi anche Shorts, compilation Roblox e video sopra i 30 minuti.
   </footer>
 </main>
 
 <script>
 //<core>
 var DATA_DATE = new Date("2026-11-16T12:00:00Z");
-var IDEAS = [
- { key:"iq-everyone", name:"Vedere l'IQ di tutti", angle:"Ogni persona ha un numero sopra la testa. Tienilo a 9–13 minuti. Ipotesi: tu sei l'unico il cui numero non si vede.", risk:"Premessa molto affollata e copiata. Il picco da 2,2M è un solo video.",
-   ev:[ {id:"2TsZSQ77E9o",t:"What If You Could See Everyone's IQ?",ch:"ConChaser",subs:28600,views:2200000,dur:"13:51",pub:"2026-10-30"},
-        {id:"VfXmpk7RLMI",t:"What If You Could See Everyone's Real Mental Age?",ch:"Ifable",subs:1500,views:242900,dur:"10:56",pub:"2026-11-08"},
-        {id:"VUqzSbqJ8uU",t:"What If You Could See How Smart Everyone THINKS They Are?",ch:"BrainBracket",subs:7700,views:50500,dur:"9:44",pub:"2026-10-29"} ] },
- { key:"secret", name:"Vedere il segreto, la paura o il rimpianto di tutti", angle:"La regola cambia cosa vedi negli altri. Una variante per volta è una serie naturale: segreto, paura, rimpianto.", risk:"Il video migliore è di un canale da 59K iscritti, meno trasferibile.",
-   ev:[ {id:"fjfrQmDW0dM",t:"What If You Could See Everyone's Biggest Secret?",ch:"Jeremy Bearimy",subs:59000,views:620600,dur:"10:39",pub:"2026-10-29"},
-        {id:"J0pP4q9nOAM",t:"What If You Could See Everyone's Biggest Regret?",ch:"ConChaser",subs:28600,views:297400,dur:"17:19",pub:"2026-10-29"},
-        {id:"TsZ7i-804eM",t:"What If You Could See Everyone's Hidden Secrets?",ch:"Ifsphere",subs:5600,views:188600,dur:"7:25",pub:"2026-10-24"},
-        {id:"6hd_pq8Z_8w",t:"What IF You Could See Everyone's Biggest Fear?",ch:"Jeremy Bearimy",subs:59000,views:160400,dur:"10:48",pub:"2026-10-30"} ] },
- { key:"rating", name:"Vedere come ti valutano gli altri (voto, attrattiva, quanto piaci)", angle:"Il numero sopra la testa è il voto che gli altri ti danno. Tema sociale che tocca tutti gli spettatori.", risk:"Tema delicato: evita contenuti che possano violare le linee guida su aspetto o bullismo.",
-   ev:[ {id:"Lu9p69RkagA",t:"What If You Could See How Everyone Rates You 1 to 10?",ch:"DOOMPERK",subs:15100,views:489300,dur:"15:04",pub:"2026-11-06"},
-        {id:"d6_f4nmH01c",t:"What If You Could See Everyone's True Attractiveness?",ch:"WHATIFFY",subs:1700,views:486100,dur:"12:33",pub:"2026-11-01"},
-        {id:"kS222TGe8Nc",t:"What If You Could See Everyone's Real-Life Rating?",ch:"Lookif",subs:1900,views:307500,dur:"11:43",pub:"2026-11-04"},
-        {id:"qkpGIBUrcic",t:"What If You Could See How Much Everyone Likes You?",ch:"WHAT NOW?",subs:1200,views:67700,dur:"7:57",pub:"2026-10-22"},
-        {id:"2q88v2ZwV4g",t:"What IF You Could See How Much Everyone Likes You?",ch:"Mirage",subs:3000,views:44800,dur:"19:18",pub:"2026-10-28"} ] },
- { key:"iq-change", name:"IQ che cambia (10.000 IQ, raddoppia ogni giorno, tutti tranne te)", angle:"Cambia la regola della mente: più intelligente, tutti più intelligenti o tu diverso dagli altri.", risk:"Il video da 527K dura 25 minuti: produzione costosa. Due prove sono segnate AI e non contano.",
-   ev:[ {id:"JOr27wqb910",t:"What If You Had 10,000 IQ?",ch:"What If Levels",subs:3500,views:527800,dur:"25:42",pub:"2026-10-19"},
-        {id:"YLcSinTIGlo",t:"What If Your IQ Doubled Every Day?",ch:"Iflord",subs:13600,views:270500,dur:"9:22",pub:"2026-11-03"},
-        {id:"1z0ElOtJ6DI",t:"What If Everyone Had 500 IQ Except You?",ch:"Iffinity Tales",subs:2800,views:178700,dur:"12:51",pub:"2026-10-25"},
-        {id:"KwHeyrscAmw",t:"What If Your IQ Lowered And Couldn't Stop?",ch:"Iceloppe",subs:11500,views:155500,dur:"10:01",pub:"2026-10-22",ai:true},
-        {id:"ZOXdz7wbWgg",t:"What If Your IQ Increased And Couldn't Stop?",ch:"Iceloppe",subs:11500,views:116200,dur:"10:01",pub:"2026-10-22",ai:true} ] },
- { key:"physical", name:"Potere fisico estremo (respirare sott'acqua, il più forte, pugni 100x, ragnatele)", angle:"Una regola del corpo cambia. Mostra le conseguenze quotidiane concrete, non solo la scena d'azione.", risk:"Genere affollato di video simili. Due dei quattro video hanno quasi un mese.",
-   ev:[ {id:"ggRf0ZYzrr8",t:"What If You Could Breathe Underwater?",ch:"Ifsphere",subs:5600,views:454400,dur:"9:09",pub:"2026-10-20"},
-        {id:"Z4HLqdR2iP4",t:"What If You Were the Strongest Person in the World?",ch:"Questionverse",subs:11600,views:417700,dur:"14:34",pub:"2026-11-05"},
-        {id:"-WSNwX37CK4",t:"What If Your Punches Were 100x Faster?",ch:"If Then Tales",subs:4800,views:276500,dur:"8:02",pub:"2026-10-19"},
-        {id:"xRqMdfHKlYg",t:"What IF You Could Shoot Webs?",ch:"IFOLOGY",subs:59700,views:236100,dur:"11:49",pub:"2026-10-13"} ] },
- { key:"charisma", name:"Carisma o abilità sociale al massimo (500 Charisma)", angle:"Una statistica da gioco applicata alla vita. Ipotesi: stesso schema con un'altra statistica (fortuna, memoria).", risk:"Una sola prova, anche se molto forte. Non è ancora confermata da altri canali.",
-   ev:[ {id:"G63ZpgzmSGo",t:"What If You Had 500 Charisma?",ch:"IFNation",subs:9700,views:1200000,dur:"9:30",pub:"2026-11-11"} ] },
- { key:"gender", name:"Cambio di genere o ruolo", angle:"Serve un angolo diverso dagli altri: la nicchia ha già 4+ video simili in due settimane.", risk:"Premessa saturata. Il video migliore dura 21 minuti.",
-   ev:[ {id:"RsnpKukfvlw",t:"What If You Turned Into A Girl?",ch:"Stupid Dupid",subs:24500,views:460700,dur:"21:11",pub:"2026-11-06"},
-        {id:"ihVNkBLEoBQ",t:"What IF You Could Swap Genders Instantly?",ch:"Doodled Stories",subs:5200,views:115700,dur:"9:05",pub:"2026-11-08"},
-        {id:"Q1qNv5TkI-E",t:"What IF Your Bully Turned Into a Girl?",ch:"Flowstate Motion",subs:3900,views:94300,dur:"8:44",pub:"2026-11-14"},
-        {id:"wz5KUHUDCNc",t:"What If You Turned Into a Girl?",ch:"Noobie Panda",subs:176,views:38600,dur:"5:15",pub:"2026-11-09",ai:true} ] },
- { key:"relations", name:"Vedere anima gemella, chi ti teme, tempo rimasto o body count", angle:"La regola cambia come vedi le relazioni. Due canali hanno fatto più hit con questo schema.", risk:"Tema delicato (morte, vita privata). Solo 2 canali nelle prove.",
-   ev:[ {id:"Cuc0qfq2_jE",t:"What IF You Could See Everyone's Soulmate ?",ch:"Price of If",subs:5500,views:280900,dur:"14:00",pub:"2026-10-31"},
-        {id:"Wn5H3XIYKac",t:"What If You Could See Everyone's Body Count?",ch:"Miko",subs:11000,views:263800,dur:"10:56",pub:"2026-10-31"},
-        {id:"M0ACV1qFu8U",t:"What If You Could See How Much Time Everyone Has Left?",ch:"Miko",subs:11000,views:201200,dur:"9:07",pub:"2026-10-17"},
-        {id:"spvoC73VuUc",t:"What IF You Could See Who's Scared of You ?",ch:"Price of If",subs:5500,views:186400,dur:"15:19",pub:"2026-11-04"} ] },
- { key:"superpowers", name:"Superpoteri per tutti (infiniti, casuali, in una notte)", angle:"Cambia la regola per tutto il mondo, non solo per te. Racconta le conseguenze sulla società.", risk:"Solo un canale supera 150K, e il video è del 12 ottobre.",
-   ev:[ {id:"J2wykd0YmyU",t:"POV: Everyone Gets Superpowers Overnight",ch:"Lucky You",subs:3400,views:369200,dur:"17:31",pub:"2026-10-12"},
-        {id:"iHlF5a2jons",t:"What If You Have Infinite Superpowers?",ch:"Stick Knows",subs:3700,views:136800,dur:"12:50",pub:"2026-11-03"},
-        {id:"q2_TdIrEYGk",t:"What If Everyone Got a Random Superpower?",ch:"WHAT NOW?",subs:1200,views:62900,dur:"8:25",pub:"2026-10-27"} ] },
- { key:"animals", name:"Parlare con gli animali", angle:"Una regola della comunicazione cambia. Funziona come serie con altre specie.", risk:"Due prove sole, quella migliore dura 15 minuti.",
-   ev:[ {id:"8ItQgbmRh_0",t:"What If You Could Talk To Any Animal?",ch:"Questionverse",subs:11600,views:215600,dur:"15:34",pub:"2026-11-06"},
-        {id:"jmgHFKpgB9U",t:"What If You Could Talk to Animals?",ch:"Ifsphere",subs:5600,views:81100,dur:"6:49",pub:"2026-10-18"} ] },
- { key:"everyone-except", name:"Tutti cambiano tranne te (neonati, bambini)", angle:"Il mondo cambia e tu no. Ipotesi: stessa idea con un'altra età o ruolo.", risk:"Due canali, video di fine ottobre.",
-   ev:[ {id:"LQC2nR89C78",t:"What If Everyone Turned Into a Baby Except You?",ch:"One Small If",subs:6600,views:190800,dur:"9:13",pub:"2026-10-29"},
-        {id:"kKyoGze4FOg",t:"What If Everyone Turned Into Kids Except You?",ch:"Iffinity Tales",subs:2800,views:125300,dur:"10:54",pub:"2026-10-27"} ] },
- { key:"money", name:"Ogni passo ti dà un dollaro o le tue bugie diventano vere", angle:"Una regola economica o morale applicata alla vita di tutti i giorni.", risk:"Un solo canale, sotto 150K views, video da 17–20 minuti.",
-   ev:[ {id:"cjfPcGIQJDc",t:"What If Every Step You Took Earned You 1 Dollar?",ch:"Stupid Dupid",subs:24500,views:136700,dur:"17:47",pub:"2026-11-10"},
-        {id:"QO9fCZRup9A",t:"What If All Your Lies Came True?",ch:"Stupid Dupid",subs:24500,views:111000,dur:"20:31",pub:"2026-11-12"} ] },
- { key:"zombie", name:"Zombie e sopravvivenza", angle:"Genere diverso dal tuo. Valuta solo se vuoi allargare il canale.", risk:"Le prove migliori sono segnate AI. Nessun video non AI supera 150K.",
-   ev:[ {id:"QSfzzQLK8PI",t:"Zombie Outbreak: 7 Days to Build a Bunker",ch:"Thinkdots",subs:4100,views:225900,dur:"9:34",pub:"2026-11-03",ai:true},
-        {id:"u4JVj-oHIzA",t:"What If Your Bite Could Cure Zombies in a Zombie Apocalypse?",ch:"IfDatTrue",subs:4600,views:94100,dur:"13:51",pub:"2026-11-03"},
-        {id:"hqeni9ZJwPE",t:"What If You Had HACKS in a Zombie Apocalypse?",ch:"IfDatTrue",subs:4600,views:95400,dur:"17:55",pub:"2026-10-22",ai:true} ] }
+var SMALL = 30000, HIT = 150000;
+var CLUSTERS = {
+ "see-iq":{name:"Vedere l'IQ degli altri",
+   angle:"Un numero sopra la testa di ogni persona. Tienilo a 9–13 minuti.",
+   risk:"Premessa molto copiata. Il picco da 2,2M è un solo video."},
+ "iq-change":{name:"IQ che cambia (10.000 IQ, 10x, infinito)",
+   angle:"Cambia la regola della mente e metti il protagonista in un contesto concreto (esercito, isola).",
+   risk:"È la famiglia più affollata: 11 video in 4 settimane. Il video da 25 minuti costa molta produzione."},
+ "see-hidden":{name:"Vedere i segreti e i lati nascosti degli altri",
+   angle:"Una variante per volta è una serie naturale: segreto, paura, rimpianto, chi ti odia.",
+   risk:"Alcuni temi sono delicati (body count, morte): controlla le linee guida YouTube prima."},
+ "see-rating":{name:"Vedere come ti valutano gli altri",
+   angle:"Il numero sopra la testa è il voto che gli altri ti danno. Tema sociale che tocca tutti.",
+   risk:"Evita contenuti su aspetto fisico che possano violare le linee guida."},
+ "love":{name:"Amore, cotte e anima gemella",
+   angle:"La regola cambia come vedi le relazioni: chi ti ama, chi ha una cotta, l'anima gemella.",
+   risk:"Molti canali la rifanno nelle stesse settimane."},
+ "ability":{name:"Abilità fisiche e poteri (respirare sott'acqua, riflessi 100x)",
+   angle:"Una regola del corpo cambia. Mostra le conseguenze quotidiane, non solo la scena d'azione.",
+   risk:"Genere molto affollato. Diversi video sono vecchi di quasi un mese."},
+ "game-powers":{name:"Meccaniche da gioco o anime nella vita reale",
+   angle:"Level Up, Creative Mode, Respawn, 500 Charisma: una regola di gioco applicata alla vita.",
+   risk:"Con personaggi con copyright (Gojo, Sukuna, Spider-Man) c'è rischio di reclami. Meglio solo meccaniche generiche."},
+ "animals":{name:"Parlare con gli animali",
+   angle:"Una regola della comunicazione cambia. Funziona come serie con altre specie.",
+   risk:"Solo 3 video, e due su 3 sotto 150K."},
+ "except-you":{name:"Tutti cambiano tranne te",
+   angle:"Il mondo cambia e tu no. Una variante diversa per ogni video.",
+   risk:"Un video su sette è segnato AI e non conta."},
+ "world":{name:"Una regola cambia per tutto il mondo",
+   angle:"Racconta le conseguenze sulla società, non solo su una persona.",
+   risk:"Pochi video e molto diversi tra loro: poca ripetibilità."},
+ "last":{name:"L'ultimo umano o l'ultima ragazza sulla Terra",
+   angle:"Sopravvivenza e responsabilità. Vicina al tuo \"Last 2 Humans\" (12 views): confronta il packaging prima.",
+   risk:"Il tuo video simile non ha funzionato: capisci prima perché."},
+ "girls-only":{name:"Unico ragazzo tra ragazze (altre ambientazioni)",
+   angle:"Isola, spazio, campo estivo, sleepover. La scuola l'hai già fatta (342 views).",
+   risk:"Premessa saturata e già tentata dal tuo canale."},
+ "gender":{name:"Cambio di genere",
+   angle:"Serve un angolo diverso: ci sono già diversi video simili in due settimane.",
+   risk:"Saturata. Il video migliore dura 21 minuti."},
+ "money":{name:"Regole di soldi, tempo e bugie",
+   angle:"Una regola economica o morale applicata alla vita di tutti i giorni.",
+   risk:"Pochi video, tutti sotto 150K views."},
+ "zombie":{name:"Zombie e sopravvivenza",
+   angle:"Genere diverso dal tuo. Valuta solo se vuoi allargare il canale.",
+   risk:"Le prove migliori sono segnate AI."}
+};
+// [id, title, channel, subs, views, dur, pub, flag(ai|ip|""), cluster]
+var V = [
+ ["2TsZSQ77E9o","What If You Could See Everyone's IQ?","ConChaser",28600,2200000,"13:51","2026-10-30","","see-iq"],
+ ["VfXmpk7RLMI","What If You Could See Everyone's Real Mental Age?","Ifable",1500,242900,"10:56","2026-11-08","","see-iq"],
+ ["VUqzSbqJ8uU","What If You Could See How Smart Everyone THINKS They Are?","BrainBracket",7700,50500,"9:44","2026-10-29","","see-iq"],
+
+ ["JOr27wqb910","What If You Had 10,000 IQ?","What If Levels",3500,527800,"25:42","2026-10-19","","iq-change"],
+ ["YLcSinTIGlo","What If Your IQ Doubled Every Day?","Iflord",13600,270500,"9:22","2026-11-03","","iq-change"],
+ ["mxg-vH5bL-w","What If Your IQ Was 1,000? (Einstein Was Only 160)","BrainBracket",7700,1200000,"9:08","2026-10-20","","iq-change"],
+ ["ncziskWQbQA","What If Your IQ Was 10x Higher? (The Terrifying Truth)","Manifesting",5800,976700,"8:46","2026-10-14","","iq-change"],
+ ["4kHPfx6Gy00","What If You Had 500 IQ?","Ifverse",63200,1500000,"8:56","2026-10-14","","iq-change"],
+ ["z7qoKuPcqlQ","What If You Had Infinite IQ in the Army?","DOOMPERK",15100,481300,"13:14","2026-11-01","","iq-change"],
+ ["FXJO5fIHidQ","What If You Had Infinite IQ on a Deserted ISLAND?","DOOMPERK",15100,111800,"14:33","2026-11-13","","iq-change"],
+ ["iKtDWC0Qaso","What If a 1000 IQ Genius Faced an EVIL 1000 IQ Genius?","BrainBracket",7700,172100,"8:26","2026-11-06","","iq-change"],
+ ["lpoeMOkwCgo","IQ 70 vs IQ 160: What Brilliant Minds Can't See","Decoded Minds",40900,244700,"9:29","2026-10-29","","iq-change"],
+ ["KwHeyrscAmw","What If Your IQ Lowered And Couldn't Stop?","Iceloppe",11500,155500,"10:01","2026-10-22","ai","iq-change"],
+ ["ZOXdz7wbWgg","What If Your IQ Increased And Couldn't Stop?","Iceloppe",11500,116200,"10:01","2026-10-22","ai","iq-change"],
+
+ ["fjfrQmDW0dM","What If You Could See Everyone's Biggest Secret?","Jeremy Bearimy",59000,620600,"10:39","2026-10-29","","see-hidden"],
+ ["TsZ7i-804eM","What If You Could See Everyone's Hidden Secrets?","Ifsphere",5600,188600,"7:25","2026-10-24","","see-hidden"],
+ ["6hd_pq8Z_8w","What IF You Could See Everyone's Biggest Fear?","Jeremy Bearimy",59000,160400,"10:48","2026-10-30","","see-hidden"],
+ ["J0pP4q9nOAM","What If You Could See Everyone's Biggest Regret?","ConChaser",28600,297400,"17:19","2026-10-29","","see-hidden"],
+ ["Wn5H3XIYKac","What If You Could See Everyone's Body Count?","Miko",11000,263800,"10:56","2026-10-31","","see-hidden"],
+ ["M0ACV1qFu8U","What If You Could See How Much Time Everyone Has Left?","Miko",11000,201200,"9:07","2026-10-17","","see-hidden"],
+ ["spvoC73VuUc","What IF You Could See Who's Scared of You ?","Price of If",5500,186400,"15:19","2026-11-04","","see-hidden"],
+ ["nOheMXyWXGg","What If You Could See Who Secretly Hates You?","Ifquirky",5900,238400,"8:22","2026-10-22","","see-hidden"],
+ ["dlJ_roZ_fAM","What If You Could See How Many Lives Everyone Has Saved?","ConChaser",28600,231900,"14:25","2026-11-03","","see-hidden"],
+ ["shPeyaG3XUk","What IF You Could See Who Will Become Famous?","Jeremy Bearimy",59000,339000,"10:19","2026-11-01","","see-hidden"],
+
+ ["Lu9p69RkagA","What If You Could See How Everyone Rates You 1 to 10?","DOOMPERK",15100,489300,"15:04","2026-11-06","","see-rating"],
+ ["d6_f4nmH01c","What If You Could See Everyone's True Attractiveness?","WHATIFFY",1700,486100,"12:33","2026-11-01","","see-rating"],
+ ["kS222TGe8Nc","What If You Could See Everyone's Real-Life Rating?","Lookif",1900,307500,"11:43","2026-11-04","","see-rating"],
+ ["D4hO22F3h9I","What If You Kept Getting More Attractive and Couldn't Stop?","All Answers",12200,211500,"8:05","2026-11-02","","see-rating"],
+ ["jadiTdeFzWk","What If You Could See How Much Everyone Likes You?","Then What?",2900,148200,"5:13","2026-10-25","","see-rating"],
+ ["UP2VAXqVIWY","What If You Could See How Much Everyone Likes You?","Sketch Of Mind",2300,134800,"8:02","2026-10-24","","see-rating"],
+ ["qkpGIBUrcic","What If You Could See How Much Everyone Likes You?","WHAT NOW?",1200,67700,"7:57","2026-10-22","","see-rating"],
+ ["2q88v2ZwV4g","What IF You Could See How Much Everyone Likes You?","Mirage",3000,44800,"19:18","2026-10-28","","see-rating"],
+
+ ["aV7_cA_xVXI","What IF You Could See Who Has a Crush on You?","Jeremy Bearimy",59000,2000000,"10:38","2026-11-02","","love"],
+ ["iKZw4OZ6S6E","What If You Could See How Many People Have a Crush on You?","ConChaser",28600,678900,"13:29","2026-10-27","","love"],
+ ["Xj9TSiOhbU0","What If Everyone Could See How Many Kids You'll Have?","What If Hero",5300,348700,"7:08","2026-11-08","","love"],
+ ["JyuOmTd2f_w","What If You Could See Who Loves You?","Hypo Room",20300,336100,"13:48","2026-11-05","","love"],
+ ["Cuc0qfq2_jE","What IF You Could See Everyone's Soulmate ?","Price of If",5500,280900,"14:00","2026-10-31","","love"],
+ ["EeruWNQ0CDM","What If You Could See Who Misses You?","IFNation",9700,235900,"11:10","2026-10-31","","love"],
+ ["aee7TD0bsQM","What If You Could See Who Secretly Loves You?","Sketch Of Mind",2300,131000,"12:24","2026-11-02","","love"],
+ ["sTunsDmRyJQ","What If Everyone Could See Your Crush's Name Above Your Head?","Sketch Of Mind",2300,95100,"12:24","2026-10-29","","love"],
+ ["n-QQeJ-ISb0","What If You Could See Everyone's Soulmate?","Sketch Of Mind",2300,74300,"15:04","2026-11-03","","love"],
+ ["ERc-wzJo5-Q","What If You and Your Crush Stopped Aging at 18?","Ifique",556,156900,"6:55","2026-11-12","ai","love"],
+
+ ["ggRf0ZYzrr8","What If You Could Breathe Underwater?","Ifsphere",5600,454400,"9:09","2026-10-20","","ability"],
+ ["Z4HLqdR2iP4","What If You Were the Strongest Person in the World?","Questionverse",11600,417700,"14:34","2026-11-05","","ability"],
+ ["ric3a4rv54M","What If Your Reflexes Were 100x Faster?","IFShift",3400,781000,"6:25","2026-10-17","","ability"],
+ ["-WSNwX37CK4","What If Your Punches Were 100x Faster?","If Then Tales",4800,276500,"8:02","2026-10-19","","ability"],
+ ["ZQmIBANG_kE","What If Every Hit Made You Stronger?","Blotwise",1300,305800,"6:58","2026-11-02","","ability"],
+ ["NQBZSae-UKI","What If U Could Pick Your Height Every Morning?","What1fy",1400,207600,"9:04","2026-11-14","","ability"],
+ ["Ltz6GOnpXvs","What IF You Could Fly?","IFOLOGY",59700,253600,"6:22","2026-10-10","","ability"],
+ ["xRqMdfHKlYg","What IF You Could Shoot Webs?","IFOLOGY",59700,236100,"11:49","2026-10-13","","ability"],
+ ["OXjfIXOhLNY","What If You Were 10x Stronger?","IFOLOGY",59700,196000,"3:30","2026-10-12","","ability"],
+ ["eA8C4IX8Z7A","What IF You Swapped Bodies With Anyone You Touched?","Jeremy Bearimy",59000,125100,"10:28","2026-10-28","","ability"],
+ ["G7d42-W5Yak","What IF You Could Walk Through Walls ?","Price of If",5500,71000,"9:10","2026-10-20","","ability"],
+ ["pZ1z-D7Zo_0","What If You Could See the 4th Dimension?","Sappy Man",1000,68300,"6:33","2026-10-20","","ability"],
+ ["oV_FgIoXWsM","What IF You Could Jump Into Other People's Bodies?","Mirage",3000,59800,"20:44","2026-11-04","","ability"],
+ ["G7I9KXGwir4","What if you Woke Up 1000x Stronger","Brain Cipher",1400,58400,"9:11","2026-10-29","","ability"],
+ ["NaTJ2Y4O7QQ","What If You Could Never Miss?","IFRIFT",1900,53500,"7:35","2026-11-04","","ability"],
+ ["JGtQzkSTR6o","What IF You Could See 10 Seconds Into the Future ?","Price of If",5500,53400,"9:33","2026-10-18","","ability"],
+
+ ["CE-KjjuOWlY","What IF You Had Creative Mode in Real Life?","Jeremy Bearimy",59000,884200,"10:49","2026-10-25","","game-powers"],
+ ["G63ZpgzmSGo","What If You Had 500 Charisma?","IFNation",9700,1200000,"9:30","2026-11-11","","game-powers"],
+ ["Zkg6GBQJJmw","What IF You Could Respawn?","Jeremy Bearimy",59000,434300,"10:49","2026-10-22","","game-powers"],
+ ["VO675WXdk0w","What IF You Could Level Up In Real Life?","Jeremy Bearimy",59000,304300,"10:36","2026-10-24","","game-powers"],
+ ["jmpb90twDt4","What If You Had Ultra Instinct?","IFANIME",6700,301800,"9:21","2026-10-24","ip","game-powers"],
+ ["w8TXMEgDlmM","What IF You Had Ultra Instinct in Real Life?","Jeremy Bearimy",59000,240000,"10:28","2026-11-13","ip","game-powers"],
+ ["92ibAh-rSLk","What If You Had the Powers of Ryomen Sukuna?","Curious Dude",4500,251400,"10:39","2026-11-02","ip","game-powers"],
+ ["hdcgAYz4s1M","What If You Had Gojo's Powers in Real Life?","Curious Dude",4500,214800,"9:52","2026-10-31","ip","game-powers"],
+ ["7ayOWtxE9h8","What If You Have Infinite Aura?","Stick Knows",3700,198300,"12:36","2026-10-30","","game-powers"],
+ ["iHlF5a2jons","What If You Have Infinite Superpowers?","Stick Knows",3700,136800,"12:50","2026-11-03","","game-powers"],
+ ["OmoUA68n13k","Everyone Has a Power Level. Mine Is 1.","Ifverse",63200,136500,"10:06","2026-11-03","","game-powers"],
+ ["ctmTd9krg90","What If You Had Mahito's Powers in Real Life?","If Then Tales",4800,67500,"20:39","2026-11-08","ip","game-powers"],
+ ["1n6iAaeR__s","What If You Woke Up as SPIDER MAN?","Canon Hole",1200,53100,"8:48","2026-10-24","ip","game-powers"],
+
+ ["8ItQgbmRh_0","What If You Could Talk To Any Animal?","Questionverse",11600,215600,"15:34","2026-11-06","","animals"],
+ ["5izaxxLJEWY","What If You Could Talk to Animals?","Rudy Finch",2500,89400,"11:32","2026-11-03","","animals"],
+ ["jmgHFKpgB9U","What If You Could Talk to Animals?","Ifsphere",5600,81100,"6:49","2026-10-18","","animals"],
+
+ ["UMkVmEO-88I","What If Nobody Could Lie… Except You?","Stick Saga",2300,597100,"16:57","2026-10-27","","except-you"],
+ ["IhfqecGHbU4","What If Everyone Else Had 50 IQ?","DOOMPERK",15100,227000,"8:47","2026-10-20","","except-you"],
+ ["LQC2nR89C78","What If Everyone Turned Into a Baby Except You?","One Small If",6600,190800,"9:13","2026-10-29","","except-you"],
+ ["1z0ElOtJ6DI","What If Everyone Had 500 IQ Except You?","Iffinity Tales",2800,178700,"12:51","2026-10-25","","except-you"],
+ ["-R1s2hyi71w","What If Everyone 10x Weaker... Except You?","IfDatTrue",4600,168300,"12:52","2026-11-01","ai","except-you"],
+ ["kKyoGze4FOg","What If Everyone Turned Into Kids Except You?","Iffinity Tales",2800,125300,"10:54","2026-10-27","","except-you"],
+ ["QQrZ2zUtV0o","What If Everyone Shrank Except You?","What If Hero",5300,70000,"8:04","2026-10-31","","except-you"],
+
+ ["zqQZXZ-eUnE","What If Everyone Could Hear Your Thoughts?","IFNation",9700,1000000,"11:09","2026-11-05","","world"],
+ ["K_56-ZqYviY","What If Humans Lived Underwater?","Oddly Elsewhere",22100,878400,"10:02","2026-10-16","","world"],
+ ["J2wykd0YmyU","POV: Everyone Gets Superpowers Overnight","Lucky You",3400,369200,"17:31","2026-10-12","","world"],
+ ["dOYLR7ECXvk","What If Everyone on Earth Slept for 1000 Years?","IfLoop",601,225200,"10:30","2026-10-31","ai","world"],
+ ["q2_TdIrEYGk","What If Everyone Got a Random Superpower?","WHAT NOW?",1200,62900,"8:25","2026-10-27","","world"],
+
+ ["J3XahLkDEzU","What If You Were the Last Human on Earth?","Oddly Elsewhere",22100,936400,"11:01","2026-10-13","","last"],
+ ["fFziW8Hgf84","What if You Were The Last Girl On Earth?","Awaken",24400,815100,"8:09","2026-10-30","","last"],
+ ["DgftZCQe8sI","What If You Were the Last Human on Earth?","OminiAM",7900,447700,"12:41","2026-10-17","","last"],
+ ["3qxDlLEtuhQ","What If You Had to Regrow Humanity With the Last Girl Alive?","Ifquirky",5900,437900,"10:34","2026-10-25","","last"],
+ ["jWibiuXKaoc","What If You Were the Last Baby Ever Born?","What if U click",5800,144500,"9:14","2026-11-02","","last"],
+
+ ["8QUGyGRY9zs","What If Every Girl on Earth Loved You?","Jeremy Bearimy",59000,549200,"20:24","2026-10-26","","girls-only"],
+ ["4JWGUkwnVgs","What If You Got Stuck on a Girls Only Island?","What If Hero",5300,277800,"8:01","2026-11-02","","girls-only"],
+ ["n574MnG1t4w","What IF You Were the ONLY GUY at a Girls Only Sleepover?","Jeremy Bearimy",59000,191700,"10:53","2026-11-03","","girls-only"],
+ ["_avpLb8Y0Dk","What If You Were the Only Boy Stranded in Space?","What If Hero",5300,138700,"8:05","2026-11-06","","girls-only"],
+ ["_C-S9ajIvPw","What If Every Girl You Looked At Fell In Love?","Billy Bob",2500,82400,"9:40","2026-10-30","","girls-only"],
+ ["FDM8U8c5KDg","What IF You Were the Only Guy at a Girls Summer Camp ?","Price of If",5500,82300,"14:07","2026-11-01","","girls-only"],
+ ["kFlMPyKWjx4","What If You Were the ONLY GUY in a Girls Only Prison?","Jeremy Bearimy",59000,54800,"10:42","2026-11-15","","girls-only"],
+
+ ["RsnpKukfvlw","What If You Turned Into A Girl?","Stupid Dupid",24500,460700,"21:11","2026-11-06","","gender"],
+ ["oUBrE7YDj1o","What if you could hear every girls thoughts?","Stupid Dupid",24500,235300,"19:57","2026-11-06","","gender"],
+ ["ihVNkBLEoBQ","What IF You Could Swap Genders Instantly?","Doodled Stories",5200,115700,"9:05","2026-11-08","","gender"],
+ ["Q1qNv5TkI-E","What IF Your Bully Turned Into a Girl?","Flowstate Motion",3900,94300,"8:44","2026-11-14","","gender"],
+ ["wz5KUHUDCNc","What If You Turned Into a Girl?","Noobie Panda",176,38600,"5:15","2026-11-09","ai","gender"],
+
+ ["cjfPcGIQJDc","What If Every Step You Took Earned You 1 Dollar?","Stupid Dupid",24500,136700,"17:47","2026-11-10","","money"],
+ ["j_qifV_JvTs","What If You Had a Secret 8th Day Every Week?","Then What?",2900,120500,"10:01","2026-11-02","","money"],
+ ["QO9fCZRup9A","What If All Your Lies Came True?","Stupid Dupid",24500,111000,"20:31","2026-11-12","","money"],
+
+ ["QSfzzQLK8PI","Zombie Outbreak: 7 Days to Build a Bunker","Thinkdots",4100,225900,"9:34","2026-11-03","ai","zombie"],
+ ["hqeni9ZJwPE","What If You Had HACKS in a Zombie Apocalypse?","IfDatTrue",4600,95400,"17:55","2026-10-22","ai","zombie"],
+ ["u4JVj-oHIzA","What If Your Bite Could Cure Zombies in a Zombie Apocalypse?","IfDatTrue",4600,94100,"13:51","2026-11-03","","zombie"]
 ];
 
 function durSec(s){ var p=s.split(":").map(Number); return p[0]*60+p[1]; }
 function fmtDur(sec){ var m=Math.floor(sec/60), s=Math.round(sec%60); return m+":"+(s<10?"0":"")+s; }
-function median(a){ var s=a.slice().sort(function(x,y){return x-y;}), n=s.length; return n%2 ? s[(n-1)/2] : (s[n/2-1]+s[n/2])/2; }
+function median(a){ if(!a.length) return 0; var s=a.slice().sort(function(x,y){return x-y;}), n=s.length; return n%2 ? s[(n-1)/2] : (s[n/2-1]+s[n/2])/2; }
 function ageDays(iso){ return Math.floor((DATA_DATE - new Date(iso+"T12:00:00Z"))/86400000); }
 
-function build(){
-  var rows = IDEAS.map(function(it){
-    var r = Object.assign({}, it);
-    var good = it.ev.filter(function(e){ return !e.ai; });
-    r.channels = Object.keys(it.ev.reduce(function(m,e){ m[e.ch]=1; return m; }, {})).length;
-    r.bestViews = good.length ? Math.max.apply(null, good.map(function(e){return e.views;})) : 0;
-    r.bestEv = good.slice().sort(function(a,b){return b.views-a.views;})[0] || it.ev[0];
-    var hit = {};
-    good.forEach(function(e){ if(e.subs<30000 && e.views>=150000) hit[e.ch]=1; });
-    r.smallHits = Object.keys(hit).length;
-    r.medDur = median(it.ev.map(function(e){ return durSec(e.dur); }));
-    r.newestAge = Math.min.apply(null, it.ev.map(function(e){ return ageDays(e.pub); }));
-    r.newest = it.ev.map(function(e){return e.pub;}).sort().slice(-1)[0];
-    if(r.channels>=3 && r.smallHits>=2 && r.newestAge<=21 && r.medDur<=900) r.tier="A";
-    else if(r.smallHits>=1) r.tier="B";
-    else r.tier="C";
-    return r;
+function videos(){
+  return V.map(function(a){
+    return { id:a[0], t:a[1], ch:a[2], subs:a[3], views:a[4], dur:a[5], durSec:durSec(a[5]), pub:a[6],
+             ai:a[7]==="ai", ip:a[7]==="ip", cl:a[8], age:ageDays(a[6]), vps:a[4]/a[3] };
+  });
+}
+
+function buildClusters(){
+  var vids = videos(), out = [];
+  Object.keys(CLUSTERS).forEach(function(key){
+    var list = vids.filter(function(v){ return v.cl===key; });
+    var clean = list.filter(function(v){ return !v.ai && !v.ip; });
+    var hitCh = {};
+    clean.forEach(function(v){ if(v.subs<SMALL && v.views>=HIT) hitCh[v.ch]=1; });
+    var chs = {}; list.forEach(function(v){ chs[v.ch]=1; });
+    var c = Object.assign({ key:key }, CLUSTERS[key]);
+    c.n = list.length;
+    c.channels = Object.keys(chs).length;
+    c.hits = Object.keys(hitCh).length;
+    c.medViews = median(clean.map(function(v){return v.views;}));
+    c.bestViews = clean.length ? Math.max.apply(null, clean.map(function(v){return v.views;})) : 0;
+    c.medDur = median(list.map(function(v){return v.durSec;}));
+    c.newestAge = Math.min.apply(null, list.map(function(v){return v.age;}));
+    c.newest = list.map(function(v){return v.pub;}).sort().slice(-1)[0];
+    c.best = clean.slice().sort(function(a,b){return b.views-a.views;}).slice(0,3);
+    c.bestEv = c.best[0] || list[0];
+    if(c.hits>=4 && c.medViews>150000 && c.newestAge<21) c.tier="A";
+    else if(c.hits>=2) c.tier="B";
+    else c.tier="C";
+    out.push(c);
   });
   var order = {A:0,B:1,C:2};
-  rows.sort(function(a,b){ return order[a.tier]-order[b.tier] || b.bestViews-a.bestViews; });
-  rows.forEach(function(r,i){ r.rank=i+1; });
-  return rows;
+  out.sort(function(a,b){ return order[a.tier]-order[b.tier] || b.hits-a.hits || b.medViews-a.medViews; });
+  out.forEach(function(c,i){ c.rank=i+1; });
+  return out;
 }
 //</core>
 
 var LABEL = {A:"Alto", B:"Promettente", C:"Da testare"};
-var ROWS = build();
-var state = { filter:"all", hideDone:false };
+var CL = buildClusters();
+var ALLV = videos();
+var stC = { filter:"all", hideDone:false };
+var stV = { q:"", cl:"all", onlySmall:false, noFlag:false, key:"views", dir:-1 };
 var DONE = {};
-try { DONE = JSON.parse(localStorage.getItem("itrc-ideas-v1") || "{}") || {}; } catch(e) { DONE = {}; }
-function saveDone(){ try { localStorage.setItem("itrc-ideas-v1", JSON.stringify(DONE)); } catch(e) {} }
+try { DONE = JSON.parse(localStorage.getItem("itrc-ideas-v2") || "{}") || {}; } catch(e) { DONE = {}; }
+function saveDone(){ try { localStorage.setItem("itrc-ideas-v2", JSON.stringify(DONE)); } catch(e) {} }
 
-function fmt(n){ return n.toLocaleString("it-IT"); }
+function fmt(n){ return Math.round(n).toLocaleString("it-IT"); }
+function fmt1(n){ return n.toLocaleString("it-IT", {maximumFractionDigits:1}); }
 function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
 function link(href, text){ var a=el("a",null,text); a.href=href; a.target="_blank"; a.rel="noopener"; return a; }
+function thumb(id, alt, small){
+  var a = link("https://www.youtube.com/watch?v="+id, "");
+  var img = document.createElement("img"); img.className = "th"+(small?" s":""); img.loading="lazy"; img.alt="Thumbnail: "+alt;
+  img.src = "https://i.ytimg.com/vi/"+id+"/mqdefault.jpg"; a.appendChild(img); return a;
+}
 
-function render(){
-  var body = document.getElementById("body"); body.textContent="";
-  var shown = ROWS.filter(function(r){
-    if(state.filter!=="all" && r.tier!==state.filter) return false;
-    if(state.hideDone && DONE[r.key]) return false;
+function renderC(){
+  var body = document.getElementById("bodyC"); body.textContent="";
+  var shown = CL.filter(function(c){
+    if(stC.filter!=="all" && c.tier!==stC.filter) return false;
+    if(stC.hideDone && DONE[c.key]) return false;
     return true;
   });
-  if(!shown.length){ var t=el("tr"), d=el("td",null,"Nessuna idea corrisponde ai filtri."); d.colSpan=13; t.appendChild(d); body.appendChild(t); return; }
-  shown.forEach(function(r){
-    var tr = el("tr", DONE[r.key] ? "done" : "");
-    tr.appendChild(el("td","num",String(r.rank)));
-    tr.appendChild(el("td")).appendChild(el("span","badge b"+r.tier, LABEL[r.tier]));
-
-    var tdI = el("td"); var a = link("https://www.youtube.com/watch?v="+r.bestEv.id,"");
-    var img = document.createElement("img"); img.className="th"; img.loading="lazy"; img.alt="Thumbnail: "+r.bestEv.t;
-    img.src="https://i.ytimg.com/vi/"+r.bestEv.id+"/mqdefault.jpg"; a.appendChild(img); tdI.appendChild(a);
-    tdI.appendChild(el("div","small","Video migliore: "+r.bestEv.ch)); tr.appendChild(tdI);
-
-    tr.appendChild(el("td","name",r.name));
-    tr.appendChild(el("td","num",String(r.channels)));
-    tr.appendChild(el("td","num",r.bestViews ? fmt(r.bestViews) : "—"));
-    tr.appendChild(el("td","num",String(r.smallHits)));
-    tr.appendChild(el("td","num",fmtDur(r.medDur)));
-    var tdN = el("td",null,r.newest); tdN.appendChild(el("div","small",r.newestAge+" giorni fa")); tr.appendChild(tdN);
-
+  if(!shown.length){ var t=el("tr"), d=el("td",null,"Nessun gruppo corrisponde ai filtri."); d.colSpan=15; t.appendChild(d); body.appendChild(t); return; }
+  shown.forEach(function(c){
+    var tr = el("tr", DONE[c.key] ? "done" : "");
+    tr.appendChild(el("td","num",String(c.rank)));
+    tr.appendChild(el("td")).appendChild(el("span","badge b"+c.tier, LABEL[c.tier]));
+    var tdI = el("td"); tdI.appendChild(thumb(c.bestEv.id, c.bestEv.t)); tdI.appendChild(el("div","small","Video migliore: "+c.bestEv.ch)); tr.appendChild(tdI);
+    tr.appendChild(el("td","name",c.name));
+    tr.appendChild(el("td","num",String(c.n)));
+    tr.appendChild(el("td","num",String(c.channels)));
+    tr.appendChild(el("td","num",String(c.hits)));
+    tr.appendChild(el("td","num",fmt(c.medViews)));
+    tr.appendChild(el("td","num",c.bestViews ? fmt(c.bestViews) : "—"));
+    tr.appendChild(el("td","num",fmtDur(c.medDur)));
+    var tdN = el("td",null,c.newest); tdN.appendChild(el("div","small",c.newestAge+" giorni fa")); tr.appendChild(tdN);
     var tdE = el("td","ev");
-    r.ev.slice().sort(function(a,b){return b.views-a.views;}).forEach(function(e){
+    c.best.forEach(function(e){
       var d = el("div"); d.appendChild(link("https://www.youtube.com/watch?v="+e.id, e.t));
-      var meta = el("span","small"," · "+e.ch+" ("+fmt(e.subs)+" iscritti) · "+fmt(e.views)+" views · "+e.dur+" ");
-      d.appendChild(meta);
-      if(e.ai){ d.appendChild(el("span","tag-ai","AI")); }
+      d.appendChild(el("span","small"," · "+e.ch+" ("+fmt(e.subs)+" iscritti) · "+fmt(e.views)+" views · "+e.dur));
       tdE.appendChild(d);
     });
     tr.appendChild(tdE);
-    tr.appendChild(el("td","txt",r.angle));
-    tr.appendChild(el("td","txt",r.risk));
-
-    var tdD = el("td"); var cb=document.createElement("input"); cb.type="checkbox"; cb.checked=!!DONE[r.key];
-    cb.setAttribute("aria-label","Segna come fatta: "+r.name);
-    cb.addEventListener("change", function(){ if(cb.checked) DONE[r.key]=true; else delete DONE[r.key]; saveDone(); render(); });
+    tr.appendChild(el("td","txt",c.angle));
+    tr.appendChild(el("td","txt",c.risk));
+    var tdD = el("td"); var cb=document.createElement("input"); cb.type="checkbox"; cb.checked=!!DONE[c.key];
+    cb.setAttribute("aria-label","Segna come fatta: "+c.name);
+    cb.addEventListener("change", function(){ if(cb.checked) DONE[c.key]=true; else delete DONE[c.key]; saveDone(); renderC(); });
     tdD.appendChild(cb); tr.appendChild(tdD);
     body.appendChild(tr);
   });
 }
 
-Array.prototype.forEach.call(document.querySelectorAll(".chip[data-filter]"), function(btn){
-  btn.addEventListener("click", function(){
-    state.filter = btn.getAttribute("data-filter");
-    Array.prototype.forEach.call(document.querySelectorAll(".chip[data-filter]"), function(b){ b.setAttribute("aria-pressed", b===btn ? "true":"false"); });
-    render();
+var VCOLS = [
+ {k:"thumb",label:"Thumbnail",cls:"nosort"},{k:"t",label:"Titolo",cls:""},{k:"ch",label:"Canale",cls:""},
+ {k:"subs",label:"Iscritti",cls:"num"},{k:"views",label:"Views",cls:"num"},{k:"vps",label:"Views / iscritto",cls:"num"},
+ {k:"durSec",label:"Durata",cls:"num"},{k:"pub",label:"Pubblicato",cls:""},{k:"cl",label:"Gruppo",cls:""},{k:"flag",label:"Note",cls:"nosort"}
+];
+function renderHeadV(){
+  var tr = document.getElementById("headV"); tr.textContent="";
+  VCOLS.forEach(function(c){
+    var th = el("th", c.cls, c.label);
+    if(c.cls.indexOf("nosort")<0){
+      th.addEventListener("click", function(){
+        if(stV.key===c.k) stV.dir=-stV.dir; else { stV.key=c.k; stV.dir=(c.cls.indexOf("num")>=0)?-1:1; }
+        renderV();
+      });
+    }
+    if(stV.key===c.k) th.setAttribute("aria-sort", stV.dir===1?"ascending":"descending");
+    tr.appendChild(th);
   });
-});
-document.getElementById("hideDone").addEventListener("click", function(e){
-  state.hideDone=!state.hideDone; e.currentTarget.setAttribute("aria-pressed", state.hideDone?"true":"false"); render();
-});
-render();
+}
+function renderV(){
+  renderHeadV();
+  var body = document.getElementById("bodyV"); body.textContent="";
+  var q = stV.q.trim().toLowerCase();
+  var rows = ALLV.filter(function(v){
+    if(stV.cl!=="all" && v.cl!==stV.cl) return false;
+    if(stV.onlySmall && v.subs>=SMALL) return false;
+    if(stV.noFlag && (v.ai||v.ip)) return false;
+    if(q && (v.t+" "+v.ch).toLowerCase().indexOf(q)<0) return false;
+    return true;
+  });
+  var k=stV.key, d=stV.dir;
+  rows.sort(function(a,b){
+    var x = k==="cl" ? CLUSTERS[a.cl].name : a[k], y = k==="cl" ? CLUSTERS[b.cl].name : b[k];
+    if(typeof x==="string") return d*x.localeCompare(y,"it");
+    return d*(x-y);
+  });
+  if(!rows.length){ var t=el("tr"), c=el("td",null,"Nessun video corrisponde ai filtri."); c.colSpan=VCOLS.length; t.appendChild(c); body.appendChild(t); return; }
+  rows.forEach(function(v){
+    var tr = el("tr");
+    var tdI = el("td"); tdI.appendChild(thumb(v.id, v.t, true)); tr.appendChild(tdI);
+    var tdT = el("td","name"); tdT.appendChild(link("https://www.youtube.com/watch?v="+v.id, v.t)); tr.appendChild(tdT);
+    tr.appendChild(el("td",null,v.ch));
+    tr.appendChild(el("td","num",fmt(v.subs)));
+    tr.appendChild(el("td","num",fmt(v.views)));
+    tr.appendChild(el("td","num",fmt1(v.vps)+"x"));
+    tr.appendChild(el("td","num",v.dur));
+    var tdP = el("td",null,v.pub); tdP.appendChild(el("div","small",v.age+" giorni fa")); tr.appendChild(tdP);
+    tr.appendChild(el("td",null,CLUSTERS[v.cl].name));
+    var tdF = el("td"); if(v.ai) tdF.appendChild(el("span","badge bw","AI")); if(v.ip) tdF.appendChild(el("span","badge bw","Copyright")); tr.appendChild(tdF);
+    body.appendChild(tr);
+  });
+}
+
+(function init(){
+  var chs = {}; ALLV.forEach(function(v){ chs[v.ch]=1; });
+  document.getElementById("nVideos").textContent = String(ALLV.length);
+  document.getElementById("nChannels").textContent = String(Object.keys(chs).length);
+  var sel = document.getElementById("cl");
+  var all = el("option",null,"Tutti i gruppi"); all.value="all"; sel.appendChild(all);
+  CL.forEach(function(c){ var o=el("option",null,c.name); o.value=c.key; sel.appendChild(o); });
+  sel.addEventListener("change", function(){ stV.cl=sel.value; renderV(); });
+  document.getElementById("q").addEventListener("input", function(e){ stV.q=e.target.value; renderV(); });
+  document.getElementById("onlySmall").addEventListener("click", function(e){ stV.onlySmall=!stV.onlySmall; e.currentTarget.setAttribute("aria-pressed", stV.onlySmall?"true":"false"); renderV(); });
+  document.getElementById("noFlag").addEventListener("click", function(e){ stV.noFlag=!stV.noFlag; e.currentTarget.setAttribute("aria-pressed", stV.noFlag?"true":"false"); renderV(); });
+  Array.prototype.forEach.call(document.querySelectorAll(".chip[data-filter]"), function(btn){
+    btn.addEventListener("click", function(){
+      stC.filter = btn.getAttribute("data-filter");
+      Array.prototype.forEach.call(document.querySelectorAll(".chip[data-filter]"), function(b){ b.setAttribute("aria-pressed", b===btn?"true":"false"); });
+      renderC();
+    });
+  });
+  document.getElementById("hideDone").addEventListener("click", function(e){ stC.hideDone=!stC.hideDone; e.currentTarget.setAttribute("aria-pressed", stC.hideDone?"true":"false"); renderC(); });
+  renderC(); renderV();
+})();
 </script>
 </body>
 </html>
